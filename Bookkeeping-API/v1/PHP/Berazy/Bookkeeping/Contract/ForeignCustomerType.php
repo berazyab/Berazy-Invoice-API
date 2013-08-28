@@ -36,51 +36,51 @@
  * Class equivalent to the XML element ForeignCustomerType.
  * <foreignCustomer ...></foreignCustomer>
  *
- * @package	Berazy
- * @author	Johan Sall Larsson <johan@berazy.se>
- * @author	Simon Stal <simon@berazy.se>
- * @since	1.0.0
+ * @package Berazy
+ * @author  Johan Sall Larsson <johan@berazy.se>
+ * @author  Simon Stal <simon@berazy.se>
+ * @since   1.0.0
  */
 class ForeignCustomerType {
 
-	/**
-	 * Sweden/Norway/Denmark/Finland - Countries which are supported with "ssn_check".
-	 * @var string
-	 */
-	private $country;
+    /**
+     * Sweden/Norway/Denmark/Finland - Countries which are supported with "ssn_check".
+     * @var string
+     */
+    private $country;
 
-	/**
-	 * Special agreement is needed in order to use this option.
-	 * @var CountryWithoutSsnCheckType
-	 */
-	private $countryWithoutSsnCheck;
-	
-	/********************************************************************************
+    /**
+     * Special agreement is needed in order to use this option.
+     * @var CountryWithoutSsnCheckType
+     */
+    private $countryWithoutSsnCheck;
+    
+    /********************************************************************************
      * Getters and setters
      *******************************************************************************/
-	 
-	/**
-	 * @XmlElement country
-	 */
-	public function getCountry() {
-		return $this->country;
-	}
-	
-	public function setCountry($country) {
-		$this->country = $country;
-	}
-	
-	/**
-	 * @XmlElement countryWithNoSsnCheck
-	 */
-	public function getCountryWithoutSsnCheck() {
-		return $this->countryWithoutSsnCheck;
-	}
-	
-	public function setCountryWithoutSsnCheck(CountryWithoutSsnCheckType $countryWithoutSsnCheck) {
-		$this->countryWithoutSsnCheck = $countryWithoutSsnCheck;
-	}
-	
+     
+    /**
+     * @XmlElement country
+     */
+    public function getCountry() {
+        return $this->country;
+    }
+    
+    public function setCountry($country) {
+        $this->country = $country;
+    }
+    
+    /**
+     * @XmlElement countryWithNoSsnCheck
+     */
+    public function getCountryWithoutSsnCheck() {
+        return $this->countryWithoutSsnCheck;
+    }
+    
+    public function setCountryWithoutSsnCheck(CountryWithoutSsnCheckType $countryWithoutSsnCheck) {
+        $this->countryWithoutSsnCheck = $countryWithoutSsnCheck;
+    }
+    
 }
 
 ?>

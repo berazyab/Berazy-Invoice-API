@@ -36,51 +36,51 @@
  * Class equivalent to the XML root element methodCall.
  * <methodCall ...></methodCall>
  *
- * @package	Berazy
- * @author	Johan Sall Larsson <johan@berazy.se>
- * @author	Simon Stal <simon@berazy.se>
- * @since	1.0.0
+ * @package Berazy
+ * @author  Johan Sall Larsson <johan@berazy.se>
+ * @author  Simon Stal <simon@berazy.se>
+ * @since   1.0.0
  *
  * @XmlElement methodCall
  * @XmlNamespace http://www.berazy.se/API/creditInvoice
  * @XmlSchemaLocation http://www.berazy.se/API/creditInvoice http://www.berazy.se/API/creditInvoiceSchema1.0.xsd
  */
 class CreditInvoiceRequest {
-	
-	/**
-	 * The method name.
-	 * @var string
-	 */
-	private $methodName = 'creditInvoice';
-	
-	/**
-	 * The request body.
-	 * @var CreditInvoiceRequestType
-	 */
-	private $request;
-	
-	/********************************************************************************
+    
+    /**
+     * The method name.
+     * @var string
+     */
+    private $methodName = 'creditInvoice';
+    
+    /**
+     * The request body.
+     * @var CreditInvoiceRequestType
+     */
+    private $request;
+    
+    /********************************************************************************
      * Getters and setters
      *******************************************************************************/
-	 
-	/**
-	 * @XmlElement methodName
-	 */
-	public function getMethodName() {
-		return $this->methodName;
-	}
-	
-	/**
-	 * @XmlElement request
-	 */
-	public function getRequest() {
-		return $this->request;
-	}
+     
+    /**
+     * @XmlElement methodName
+     */
+    public function getMethodName() {
+        return $this->methodName;
+    }
+    
+    /**
+     * @XmlElement request
+     */
+    public function getRequest() {
+        return $this->request;
+    }
 
-	public function setRequest(CreditInvoiceRequestType $request) {
-		$this->request = $request;
-	}
-	
+    public function setRequest(CreditInvoiceRequestType $request) {
+        $this->request = $request;
+    }
+    
 }
 
 ?>

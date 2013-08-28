@@ -36,104 +36,104 @@
  * Class equivalent to the XML element CountryWithoutSsnCheckType.
  * <countryWithoutSsnCheck ...></countryWithoutSsnCheck>
  *
- * @package	Berazy
- * @author	Johan Sall Larsson <johan@berazy.se>
- * @author	Simon Stal <simon@berazy.se>
- * @since	1.0.0
+ * @package Berazy
+ * @author  Johan Sall Larsson <johan@berazy.se>
+ * @author  Simon Stal <simon@berazy.se>
+ * @since   1.0.0
  */
 class CountryWithoutSsnCheckType {
 
-	/**
-	 * An ISO 3166-1 alpha-2 two-letter country code, e.g. SE (Sweden), NO (Norway).
-	 * @var string
-	 */
-	private $countryCode;
+    /**
+     * An ISO 3166-1 alpha-2 two-letter country code, e.g. SE (Sweden), NO (Norway).
+     * @var string
+     */
+    private $countryCode;
 
-	/**
-	 * Must be used with the correct address if countryWithNoSsnCheck is used. To change 
-	 * address if country is used you have to define the careOfAddress instead. 
-	 * These elements will be ignored if just country is used.
-	 * @var string
-	 */
-	private $addressLine1;
+    /**
+     * Must be used with the correct address if countryWithNoSsnCheck is used. To change 
+     * address if country is used you have to define the careOfAddress instead. 
+     * These elements will be ignored if just country is used.
+     * @var string
+     */
+    private $addressLine1;
 
-	/**
-	 * Must be used with the correct address if countryWithNoSsnCheck is used.
-	 * @var string
-	 */
-	private $addressLine2;
+    /**
+     * Must be used with the correct address if countryWithNoSsnCheck is used.
+     * @var string
+     */
+    private $addressLine2;
 
-	/**
-	 * Optional extra address line.
-	 * @var string
-	 */
-	private $addressLine3;
+    /**
+     * Optional extra address line.
+     * @var string
+     */
+    private $addressLine3;
 
-	/**
-	 * Optional extra address line.
-	 * @var string
-	 */
-	private $addressLine4;
+    /**
+     * Optional extra address line.
+     * @var string
+     */
+    private $addressLine4;
 
-	/********************************************************************************
+    /********************************************************************************
      * Getters and setters
      *******************************************************************************/
-	 
-	/**
-	 * @XmlElement countryCode
-	 */
-	public function getCountryCode() {
-		return $this->countryCode;
-	}
-	
-	public function setCountryCode($countryCode) {
-		$this->countryCode = $countryCode;
-	}
-	
-	/**
-	 * @XmlElement addressLine1
-	 */
-	public function getAddressLine1() {
-		return $this->addressLine1;
-	}
-	
-	public function setAddressLine1($addressLine1) {
-		$this->addressLine1 = $addressLine1;
-	}
-	
-	/**
-	 * @XmlElement addressLine2
-	 */
-	public function getAddressLine2() {
-		return $this->addressLine2;
-	}
-	
-	public function setAddressLine2($addressLine2) {
-		$this->addressLine2 = $addressLine2;
-	}
-	
-	/**
-	 * @XmlElement addressLine3
-	 */
-	public function getAddressLine3() {
-		return $this->addressLine3;
-	}
-	
-	public function setAddressLine3($addressLine3) {
-		$this->addressLine3 = $addressLine3;
-	}
-	
-	/**
-	 * @XmlElement addressLine1
-	 */
-	public function getAddressLine4() {
-		return $this->addressLine4;
-	}
-	
-	public function setAddressLine4($addressLine4) {
-		$this->addressLine4 = $addressLine4;
-	}
-	
+     
+    /**
+     * @XmlElement countryCode
+     */
+    public function getCountryCode() {
+        return $this->countryCode;
+    }
+    
+    public function setCountryCode($countryCode) {
+        $this->countryCode = $countryCode;
+    }
+    
+    /**
+     * @XmlElement addressLine1
+     */
+    public function getAddressLine1() {
+        return $this->addressLine1;
+    }
+    
+    public function setAddressLine1($addressLine1) {
+        $this->addressLine1 = $addressLine1;
+    }
+    
+    /**
+     * @XmlElement addressLine2
+     */
+    public function getAddressLine2() {
+        return $this->addressLine2;
+    }
+    
+    public function setAddressLine2($addressLine2) {
+        $this->addressLine2 = $addressLine2;
+    }
+    
+    /**
+     * @XmlElement addressLine3
+     */
+    public function getAddressLine3() {
+        return $this->addressLine3;
+    }
+    
+    public function setAddressLine3($addressLine3) {
+        $this->addressLine3 = $addressLine3;
+    }
+    
+    /**
+     * @XmlElement addressLine1
+     */
+    public function getAddressLine4() {
+        return $this->addressLine4;
+    }
+    
+    public function setAddressLine4($addressLine4) {
+        $this->addressLine4 = $addressLine4;
+    }
+    
 }
 
 ?>

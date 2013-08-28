@@ -35,10 +35,10 @@ namespace Berazy\Bookkeeping;
 /**
  * The Berazy Invoice Bookkeeping API client.
  *
- * @package    Berazy
- * @author    Johan Sall Larsson <johan@berazy.se>
- * @author    Simon Stal <simon@berazy.se>
- * @since    1.0.0
+ * @package Berazy
+ * @author  Johan Sall Larsson <johan@berazy.se>
+ * @author  Simon Stal <simon@berazy.se>
+ * @since   1.0.0
  */
 class BookkeepingClient {
 
@@ -56,20 +56,20 @@ class BookkeepingClient {
     
     /**
      * The IP address.
-     * @var    string
+     * @var string
      */
     private $ipAddress;
     
     /**
      * If the XML data should be validated
      * by the XSD file before the request.
-     * @var    bool
+     * @var bool
      */
     private $validateXsdBeforeRequest;
     
     /**
      * The XML data that is sent in the POST request.
-     * @var    string
+     * @var string
      */
     private $lastRequest;
     
@@ -79,7 +79,7 @@ class BookkeepingClient {
     
     /**
      * Creates an invoice.
-     * @param    CreateInvoiceRequest    $request
+     * @param CreateInvoiceRequest $request
      */
     public function CreateInvoice(Contract\CreateInvoiceRequest $request) {
         return $this->sendRequest('http://www.berazy.se/API/createInvoiceBookkeeping', $request);
@@ -87,7 +87,7 @@ class BookkeepingClient {
     
     /**
      * Creates an invoice.
-     * @param    CreditInvoiceRequest    $request
+     * @param CreditInvoiceRequest $request
      */
     public function CreditInvoice(Contract\CreditInvoiceRequest $request) {
         return $this->sendRequest('http://www.berazy.se/API/creditInvoice', $request);
@@ -99,7 +99,7 @@ class BookkeepingClient {
      
     /**
      * Returns the customer number.
-     * @return    int
+     * @return int
      */
     public function getCustomerNumber() {
         return $this->customerNumber;
@@ -107,7 +107,7 @@ class BookkeepingClient {
     
     /**
      * Sets the customer number.
-     * @return    this
+     * @return this
      */
     public function setCustomerNumber($customerNumber) {
         $this->customerNumber = $customerNumber;
@@ -116,7 +116,7 @@ class BookkeepingClient {
     
     /**
      * Returns the authorization token.
-     * @return    string
+     * @return string
      */
     public function getAuthToken() {
         return $this->authToken;
@@ -124,7 +124,7 @@ class BookkeepingClient {
     
     /**
      * Sets the authorization token.
-     * @return    this
+     * @return this
      */
     public function setAuthToken($authToken) {
         $this->authToken = $authToken;
@@ -133,7 +133,7 @@ class BookkeepingClient {
     
     /**
      * Returns the IP address.
-     * @return    string
+     * @return string
      */
     public function getIpAddress() {
         return $this->ipAddress;
@@ -141,7 +141,7 @@ class BookkeepingClient {
     
     /**
      * Sets the IP address.
-     * @param    this
+     * @param this
      */
     public function setIpAddress($ipAddress) {
         $this->ipAddress = $ipAddress;
@@ -150,7 +150,7 @@ class BookkeepingClient {
     
     /**
      * Returns the validate XML data before request.
-     * @return    bool
+     * @return bool
      */
     public function getValidateXsdBeforeRequest() {
         return $this->validateXsdBeforeRequest;
@@ -158,8 +158,8 @@ class BookkeepingClient {
     
     /**
      * Sets the validate XML data before request.
-     * @param    bool    $validateXsdBeforeRequest
-     * @return    this
+     * @param  bool $validateXsdBeforeRequest
+     * @return this
      */
     public function setValidateXsdBeforeRequest($validateXsdBeforeRequest) {
         $this->validateXsdBeforeRequest = $validateXsdBeforeRequest;
@@ -168,7 +168,7 @@ class BookkeepingClient {
     
     /**
      * Returns the XML data in the POST request.
-     * @return    string
+     * @return string
      */
     public function getLastRequest() {
         return $this->lastRequest;
@@ -176,7 +176,7 @@ class BookkeepingClient {
     
     /**
      * Sets the XML data in the POST request.
-     * @param    string    $lastRequest
+     * @param string $lastRequest
      */
     private function setLastRequest($lastRequest) {
         $this->lastRequest = $lastRequest;
@@ -190,7 +190,7 @@ class BookkeepingClient {
      * Sends the POST request.
      * @param    string                $serviceUrl
      * @param    object                $obj
-     * @return    SimpleXMLElement
+     * @return   SimpleXMLElement
      */
     private function sendRequest($serviceUrl, $obj) {
     
@@ -230,8 +230,8 @@ class BookkeepingClient {
     /**
      * Validates the XML by XSD schema.
      * @param    SimpleXMLElement        $xmlDoc
-     * @param    string                    $data
-     * @throws    XsdValidationException
+     * @param    string                  $data
+     * @throws   XsdValidationException
      */
     private function validateXsd($xmlDoc, $data) {
         $attr = $xmlDoc->attributes();

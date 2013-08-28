@@ -36,34 +36,34 @@
  * Class equivalent to the XML element CareOfAddressType.
  * <careOfAddress ...></careOfAddress>
  *
- * @package	Berazy
- * @author	Johan Sall Larsson <johan@berazy.se>
- * @author	Simon Stal <simon@berazy.se>
- * @since	1.0.0
+ * @package Berazy
+ * @author  Johan Sall Larsson <johan@berazy.se>
+ * @author  Simon Stal <simon@berazy.se>
+ * @since   1.0.0
  */
 class CareOfAddressType {
 
-	/**
-	 * The care of address.
-	 * @var CareOfType
-	 */
-	private $careOf;
+    /**
+     * The care of address.
+     * @var CareOfType
+     */
+    private $careOf;
 
-	/********************************************************************************
+    /********************************************************************************
      * Getters and setters
      *******************************************************************************/
-	 
-	/**
-	 * @XmlElement careOf
-	 */
-	public function getCareOf() {
-		return $this->careOf;
-	}
-	
-	public function setCareOf(CareOfType $careOf) {
-		$this->careOf = $careOf;
-	}
-	
+     
+    /**
+     * @XmlElement careOf
+     */
+    public function getCareOf() {
+        return $this->careOf;
+    }
+    
+    public function setCareOf(CareOfType $careOf) {
+        $this->careOf = $careOf;
+    }
+    
 }
 
 ?>

@@ -36,217 +36,217 @@
  * Class equivalent to the XML element InvoiceRowType.
  * <row ...></row>
  *
- * @package	Berazy
- * @author	Johan Sall Larsson <johan@berazy.se>
- * @author	Simon Stal <simon@berazy.se>
- * @since	1.0.0
+ * @package Berazy
+ * @author  Johan Sall Larsson <johan@berazy.se>
+ * @author  Simon Stal <simon@berazy.se>
+ * @since   1.0.0
  *
  * @XmlElement row
  */
 class InvoiceRowType {
 
-	/**
-	 * Article Number.
-	 * @var string
-	 */
-	private $articleNumber;
-	
-	/**
-	 * Article Text, such as Ticket, Member fee. Max length 120 characters
-	 * @var string
-	 */
-	private $articleText;
+    /**
+     * Article Number.
+     * @var string
+     */
+    private $articleNumber;
+    
+    /**
+     * Article Text, such as Ticket, Member fee. Max length 120 characters
+     * @var string
+     */
+    private $articleText;
 
-	/**
-	 * Description of the article. Max length 120 characters
-	 * @var string
-	 */
-	private $description;
-	
-	/**
-	 * Vat of the article.
-	 * @var int
-	 */
-	private $vat;
-	
-	/**
-	 * The quantity of the sold articles.
-	 * @var int
-	 */
-	private $quantity;
-	
-	/**
-	 * Price inc. VAT in Á price.
-	 * @var int
-	 */
-	private $price;
-	
-	/**
-	 * Price inc. VAT in Á price.
-	 * @var int
-	 */
-	private $discount;
-	
-	/**
-	 * Column Unit will be added to the article rows/invoice rows.
-	 * @var string
-	 */
-	private $unit;
-	
-	/**
-	 * Bookkeeping account for the bookkeeping
-	 * @var int
-	 */
-	private $bookkeepingAccount;
-	
-	/**
-	 * Used in the bookkeeping.
-	 * @var string
-	 */
-	private $profitUnit;
-	
-	/**
-	 * Used in the bookkeeping.
-	 * @var string
-	 */
-	private $project;
-	
-	/********************************************************************************
+    /**
+     * Description of the article. Max length 120 characters
+     * @var string
+     */
+    private $description;
+    
+    /**
+     * Vat of the article.
+     * @var int
+     */
+    private $vat;
+    
+    /**
+     * The quantity of the sold articles.
+     * @var int
+     */
+    private $quantity;
+    
+    /**
+     * Price inc. VAT in Á price.
+     * @var int
+     */
+    private $price;
+    
+    /**
+     * Price inc. VAT in Á price.
+     * @var int
+     */
+    private $discount;
+    
+    /**
+     * Column Unit will be added to the article rows/invoice rows.
+     * @var string
+     */
+    private $unit;
+    
+    /**
+     * Bookkeeping account for the bookkeeping
+     * @var int
+     */
+    private $bookkeepingAccount;
+    
+    /**
+     * Used in the bookkeeping.
+     * @var string
+     */
+    private $profitUnit;
+    
+    /**
+     * Used in the bookkeeping.
+     * @var string
+     */
+    private $project;
+    
+    /********************************************************************************
      * Getters and setters
      *******************************************************************************/
-	 
-	/**
-	 * @XmlElement articleNo
-	 */
-	public function getArticleNumber() {
-		return $this->articleNumber;
-	}
-	
-	public function setArticleNumber($articleNumber) {
-		$this->articleNumber = $articleNumber;
-		return $this;
-	}
-	
-	/**
-	 * @XmlElement text
-	 */
-	public function getArticleText() {
-		return $this->articleText;
-	}
-	
-	public function setArticleText($articleText) {
-		$this->articleText = $articleText;
-		return $this;
-	}
-	
-	/**
-	 * @XmlElement desc
-	 */
-	public function getDescription() {
-		return $this->description;
-	}
-	
-	public function setDescription($description) {
-		$this->description = $description;
-		return $this;
-	}
-	
-	/**
-	 * @XmlElement vat
-	 */
-	public function getVat() {
-		return $this->vat;
-	}
-	
-	public function setVat($vat) {
-		$this->vat = $vat;
-		return $this;
-	}
-	
-	/**
-	 * @XmlElement quantity
-	 */
-	public function getQuantity() {
-		return $this->quantity;
-	}
-	
-	public function setQuantity($quantity) {
-		$this->quantity = $quantity;
-		return $this;
-	}
-	
-	/**
-	 * @XmlElement price
-	 */
-	public function getPrice() {
-		return $this->price;
-	}
-	
-	public function setPrice($price) {
-		$this->price = $price;
-		return $this;
-	}
-	
-	/**
-	 * @XmlElement discount
-	 */
-	public function getDiscount() {
-		return $this->discount;
-	}
-	
-	public function setDiscount($discount) {
-		$this->discount = $discount;
-		return $this;
-	}
-	
-	/**
-	 * @XmlElement unit
-	 */
-	public function getUnit() {
-		return $this->unit;
-	}
-	
-	public function setUnit($unit) {
-		$this->unit = $unit;
-		return $this;
-	}
-	
-	/**
-	 * @XmlElement bookkeepingAccount
-	 */
-	public function getBookkeepingAccount() {
-		return $this->bookkeepingAccount;
-	}
-	
-	public function setBookkeepingAccount($bookkeepingAccount) {
-		$this->bookkeepingAccount = $bookkeepingAccount;
-		return $this;
-	}
-	
-	/**
-	 * @XmlElement profitUnit
-	 */
-	public function getProfitUnit() {
-		return $this->profitUnit;
-	}
-	
-	public function setProfitUnit($profitUnit) {
-		$this->profitUnit = $profitUnit;
-		return $this;
-	}
-	
-	/**
-	 * @XmlElement project
-	 */
-	public function getProject() {
-		return $this->project;
-	}
-	
-	public function setProject($project) {
-		$this->project = $project;
-		return $this;
-	}
-	
+     
+    /**
+     * @XmlElement articleNo
+     */
+    public function getArticleNumber() {
+        return $this->articleNumber;
+    }
+    
+    public function setArticleNumber($articleNumber) {
+        $this->articleNumber = $articleNumber;
+        return $this;
+    }
+    
+    /**
+     * @XmlElement text
+     */
+    public function getArticleText() {
+        return $this->articleText;
+    }
+    
+    public function setArticleText($articleText) {
+        $this->articleText = $articleText;
+        return $this;
+    }
+    
+    /**
+     * @XmlElement desc
+     */
+    public function getDescription() {
+        return $this->description;
+    }
+    
+    public function setDescription($description) {
+        $this->description = $description;
+        return $this;
+    }
+    
+    /**
+     * @XmlElement vat
+     */
+    public function getVat() {
+        return $this->vat;
+    }
+    
+    public function setVat($vat) {
+        $this->vat = $vat;
+        return $this;
+    }
+    
+    /**
+     * @XmlElement quantity
+     */
+    public function getQuantity() {
+        return $this->quantity;
+    }
+    
+    public function setQuantity($quantity) {
+        $this->quantity = $quantity;
+        return $this;
+    }
+    
+    /**
+     * @XmlElement price
+     */
+    public function getPrice() {
+        return $this->price;
+    }
+    
+    public function setPrice($price) {
+        $this->price = $price;
+        return $this;
+    }
+    
+    /**
+     * @XmlElement discount
+     */
+    public function getDiscount() {
+        return $this->discount;
+    }
+    
+    public function setDiscount($discount) {
+        $this->discount = $discount;
+        return $this;
+    }
+    
+    /**
+     * @XmlElement unit
+     */
+    public function getUnit() {
+        return $this->unit;
+    }
+    
+    public function setUnit($unit) {
+        $this->unit = $unit;
+        return $this;
+    }
+    
+    /**
+     * @XmlElement bookkeepingAccount
+     */
+    public function getBookkeepingAccount() {
+        return $this->bookkeepingAccount;
+    }
+    
+    public function setBookkeepingAccount($bookkeepingAccount) {
+        $this->bookkeepingAccount = $bookkeepingAccount;
+        return $this;
+    }
+    
+    /**
+     * @XmlElement profitUnit
+     */
+    public function getProfitUnit() {
+        return $this->profitUnit;
+    }
+    
+    public function setProfitUnit($profitUnit) {
+        $this->profitUnit = $profitUnit;
+        return $this;
+    }
+    
+    /**
+     * @XmlElement project
+     */
+    public function getProject() {
+        return $this->project;
+    }
+    
+    public function setProject($project) {
+        $this->project = $project;
+        return $this;
+    }
+    
 }
 
 ?>

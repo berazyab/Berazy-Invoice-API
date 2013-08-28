@@ -35,10 +35,10 @@ namespace Berazy\Bookkeeping\Exception;
  * XSD Exception.
  * Thrown if the XML data unsuccessfully passes XSD validation.
  *
- * @package	Berazy
- * @author	Johan Sall Larsson <johan@berazy.se>
- * @author	Simon Stal <simon@berazy.se>
- * @since	1.0.0
+ * @package Berazy
+ * @author  Johan Sall Larsson <johan@berazy.se>
+ * @author  Simon Stal <simon@berazy.se>
+ * @since   1.0.0
  */
 class XsdValidationException extends \Exception {
 

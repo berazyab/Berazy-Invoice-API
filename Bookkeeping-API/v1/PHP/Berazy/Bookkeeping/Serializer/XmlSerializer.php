@@ -35,105 +35,105 @@ namespace Berazy\Bookkeeping\Serializer;
 /**
  * Simple class to XML serializer.
  *
- * @package	Berazy
- * @author	Johan Sall Larsson <johan@berazy.se>
- * @author	Simon Stal <simon@berazy.se>
- * @since	1.0.0
+ * @package Berazy
+ * @author  Johan Sall Larsson <johan@berazy.se>
+ * @author  Simon Stal <simon@berazy.se>
+ * @since   1.0.0
  */
 class XmlSerializer {
-	
-	/********************************************************************************
+    
+    /********************************************************************************
      * Public Functions
      *******************************************************************************/
-	 
-	/**
-	 * Serializes a class to XML.
-	 * @param	object				$class
-	 * @return	SimpleXMLElement
-	 */
-	public function serialize($class) {
-		return $this->serializeClass($class);
-	}
-	
-	/********************************************************************************
+     
+    /**
+     * Serializes a class to XML.
+     * @param    object           $class
+     * @return   SimpleXMLElement
+     */
+    public function serialize($class) {
+        return $this->serializeClass($class);
+    }
+    
+    /********************************************************************************
      * Private Functions
      *******************************************************************************/
-	 
-	/**
-	 * Adds XML attributes to the XML root (the class)
-	 * @param	object				$class
-	 * @return	SimpleXMLElement
-	 */
-	private function serializeClass($class) {
-		$reflector = new \ReflectionClass(get_class($class));
-		$attributes = $this->getXmlAttributes($reflector->getDocComment());
-		if (count($attributes) == 0) {
-			throw new Exception('No attributes found!');
-		}
-		$rootXml = new \SimpleXMLElement(sprintf('<?xml version="1.0" encoding="UTF-8"?><%s/>', trim($attributes['@XmlElement'])));
-		if (isset($attributes['@XmlNamespace'])) {
-			$rootXml->addAttribute('xmlns', trim($attributes['@XmlNamespace']));
-		}
-		if (isset($attributes['@XmlSchemaLocation'])) {
-			$rootXml->addAttribute('xmlns:xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-			$rootXml->addAttribute('xsi:xsi:schemaLocation', trim($attributes['@XmlSchemaLocation']));
-		}
-		$this->traverse($class, $rootXml);
-		return $rootXml;
-	}
+     
+    /**
+     * Adds XML attributes to the XML root (the class)
+     * @param    object           $class
+     * @return   SimpleXMLElement
+     */
+    private function serializeClass($class) {
+        $reflector = new \ReflectionClass(get_class($class));
+        $attributes = $this->getXmlAttributes($reflector->getDocComment());
+        if (count($attributes) == 0) {
+            throw new Exception('No attributes found!');
+        }
+        $rootXml = new \SimpleXMLElement(sprintf('<?xml version="1.0" encoding="UTF-8"?><%s/>', trim($attributes['@XmlElement'])));
+        if (isset($attributes['@XmlNamespace'])) {
+            $rootXml->addAttribute('xmlns', trim($attributes['@XmlNamespace']));
+        }
+        if (isset($attributes['@XmlSchemaLocation'])) {
+            $rootXml->addAttribute('xmlns:xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+            $rootXml->addAttribute('xsi:xsi:schemaLocation', trim($attributes['@XmlSchemaLocation']));
+        }
+        $this->traverse($class, $rootXml);
+        return $rootXml;
+    }
 
-	/**
-	 * Traverse through methods and array objects.
-	 * @param	mixed				$objOrArr
-	 * @param	SimpleXMLElement	$xmlNode
-	 * @return	SimpleXMLElement
-	 */
-	private function traverse($objOrArr, \SimpleXMLElement $xmlNode) {  
-		$items = $objOrArr;
-		if (is_object($objOrArr)) {
-			$items = get_class_methods($objOrArr);
-			$reflector = new \ReflectionClass(get_class($objOrArr));
-		}
-		foreach($items as $item) {
-			if (is_object($item)) {
-				$reflector = new \ReflectionClass(get_class($item));
-				$attr = $this->getXmlAttributes($reflector->getDocComment());
-				if (isset($attr['@XmlElement'])) {
-					$key = trim($attr['@XmlElement']);
-					$this->traverse($item, $xmlNode->addChild($key));
-				}
-			} else if (strncmp($item, 'set', 3)) {
-				$value = $objOrArr->$item();
-				if ($value != NULL) {
-					$attr = $this->getXmlAttributes($reflector->getMethod($item)->getDocComment());
-					if (isset($attr['@XmlElement'])) {
-						$key = trim($attr['@XmlElement']);
-						if (is_object($value) || is_array($value)) {
-							$this->traverse($value, $xmlNode->addChild($key));
-						} else {
-							$xmlNode->addChild($key, $value);
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	/**
-	 * Extracts XML attributes in a doc block string.
-	 * @param 	string 				$docBlock
-	 * @return	SimpleXMLElement
-	 */
-	private function getXmlAttributes($docBlock) {
-		$retval = array();
-		if (preg_match_all('/@Xml(\w+)\s+(.*)\r?\n/m', $docBlock, $matches)){
-			for($i = 0; $i < count($matches[1]); $i++) {
-				$retval['@Xml'.$matches[1][$i]] = $matches[2][$i];
-			}
-		}
-		return $retval;
-	}
-	
+    /**
+     * Traverse through methods and array objects.
+     * @param    mixed            $objOrArr
+     * @param    SimpleXMLElement $xmlNode
+     * @return   SimpleXMLElement
+     */
+    private function traverse($objOrArr, \SimpleXMLElement $xmlNode) {  
+        $items = $objOrArr;
+        if (is_object($objOrArr)) {
+            $items = get_class_methods($objOrArr);
+            $reflector = new \ReflectionClass(get_class($objOrArr));
+        }
+        foreach($items as $item) {
+            if (is_object($item)) {
+                $reflector = new \ReflectionClass(get_class($item));
+                $attr = $this->getXmlAttributes($reflector->getDocComment());
+                if (isset($attr['@XmlElement'])) {
+                    $key = trim($attr['@XmlElement']);
+                    $this->traverse($item, $xmlNode->addChild($key));
+                }
+            } else if (strncmp($item, 'set', 3)) {
+                $value = $objOrArr->$item();
+                if ($value != NULL) {
+                    $attr = $this->getXmlAttributes($reflector->getMethod($item)->getDocComment());
+                    if (isset($attr['@XmlElement'])) {
+                        $key = trim($attr['@XmlElement']);
+                        if (is_object($value) || is_array($value)) {
+                            $this->traverse($value, $xmlNode->addChild($key));
+                        } else {
+                            $xmlNode->addChild($key, $value);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    /**
+     * Extracts XML attributes in a doc block string.
+     * @param     string           $docBlock
+     * @return    SimpleXMLElement
+     */
+    private function getXmlAttributes($docBlock) {
+        $retval = array();
+        if (preg_match_all('/@Xml(\w+)\s+(.*)\r?\n/m', $docBlock, $matches)){
+            for($i = 0; $i < count($matches[1]); $i++) {
+                $retval['@Xml'.$matches[1][$i]] = $matches[2][$i];
+            }
+        }
+        return $retval;
+    }
+    
 }
 
 ?>

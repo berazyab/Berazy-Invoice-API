@@ -36,51 +36,51 @@ namespace Berazy\Bookkeeping\Contract;
  * Class equivalent to the XML root element methodCall.
  * <metodCall ...></methodCall>
  *
- * @package	Berazy
- * @author	Johan Sall Larsson <johan@berazy.se>
- * @author	Simon Stal <simon@berazy.se>
- * @since	1.0.0
+ * @package Berazy
+ * @author  Johan Sall Larsson <johan@berazy.se>
+ * @author  Simon Stal <simon@berazy.se>
+ * @since   1.0.0
  *
  * @XmlElement methodCall
  * @XmlNamespace http://www.berazy.se/API/createInvoiceBookkeeping
  * @XmlSchemaLocation http://www.berazy.se/API/createInvoiceBookkeeping http://www.berazy.se/API/createInvoiceBookkeepingSchema1.0.xsd
  */
 class CreateInvoiceRequest {
-	
-	/**
-	 * The method name.
-	 * @var string
-	 */
-	private $methodName = 'createInvoice';
-	
-	/**
-	 * The request body.
-	 * @var CreateInvoiceRequestType
-	 */
-	private $request;
-	
-	/********************************************************************************
+    
+    /**
+     * The method name.
+     * @var string
+     */
+    private $methodName = 'createInvoice';
+    
+    /**
+     * The request body.
+     * @var CreateInvoiceRequestType
+     */
+    private $request;
+    
+    /********************************************************************************
      * Getters and setters
      *******************************************************************************/
-	 
-	/**
-	 * @XmlElement methodName
-	 */
-	public function getMethodName() {
-		return $this->methodName;
-	}
-	
-	/**
-	 * @XmlElement request
-	 */
-	public function getRequest() {
-		return $this->request;
-	}
+     
+    /**
+     * @XmlElement methodName
+     */
+    public function getMethodName() {
+        return $this->methodName;
+    }
+    
+    /**
+     * @XmlElement request
+     */
+    public function getRequest() {
+        return $this->request;
+    }
 
-	public function setRequest(CreateInvoiceRequestType $request) {
-		$this->request = $request;
-	}
-	
+    public function setRequest(CreateInvoiceRequestType $request) {
+        $this->request = $request;
+    }
+    
 }
 
 ?>
