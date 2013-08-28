@@ -247,7 +247,7 @@ namespace Berazy.Examples.Contracts {
         /// <summary>
         /// Special agreement is needed in order to use this option.
         /// </summary>
-        [XmlElement(ElementName = "countryWithNoSsnCheckType")]
+        [XmlElement(ElementName = "countryWithNoSsnCheck")]
         public CountryWithoutSsnCheckType CountryWithoutSsnCheck { get; set; }
 
     }

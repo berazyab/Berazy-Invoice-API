@@ -1,0 +1,183 @@
+<?php
+/**
+ * Berazy Bookkeeping API Client
+ *
+ * @author      Johan Sall Larsson <johan@berazy.se>
+ * @author      Simon Stal <simon@berazy.se>
+ * @copyright   2013 Berazy AB (publ)
+ * @version     1.0.0
+ * @package     Berazy
+ *
+ * MIT LICENSE
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+ 
+/********************************************************************************
+ * Example configuration.
+ *******************************************************************************/
+ 
+	$config = array(
+		'customerNumber' => NULL, 
+		'authToken' 	 => NULL,
+		'ipAddress' 	 => NULL,
+		'orgNoOrssn' 	 => NULL,
+		'emailAddress'	 => NULL,
+		'creditOcr'		 => NULL
+	);
+ 
+	foreach($config as $configValue) {
+		if ($configValue == NULL) {
+			die('All config values must be set!');
+		}
+	}
+	
+	$config = (object) $config;
+ 
+/********************************************************************************
+ * Custom autoloading
+ * Do not use if you are using Composer to autoload dependencies.
+ *******************************************************************************/
+	 
+	function customAutoLoader($class) {
+		$file = rtrim(dirname(__FILE__), '/') . '/' . $class . '.php';
+		if (file_exists($file)) {
+			require $file;
+		} else {
+			return;
+		}
+	}
+	spl_autoload_register('customAutoLoader');
+
+/********************************************************************************
+ * Initialize BookkeepingClient
+ *******************************************************************************/
+ 
+	$client = new \Berazy\Bookkeeping\BookkeepingClient();
+	$client ->setCustomerNumber($config->customerNumber)
+			->setAuthToken($config->authToken)
+			->setIpAddress($config->ipAddress)
+			->setValidateXsdBeforeRequest(FALSE);
+
+/********************************************************************************
+ * Create invoice request
+ *******************************************************************************/
+ 
+	$createInvoice = new \Berazy\Bookkeeping\Contract\CreateInvoiceRequest();
+	$createRequest = new \Berazy\Bookkeeping\Contract\CreateInvoiceRequestType();
+	$createRequest->setIsTestModeEnabled('true');
+	$createRequest->setPrintSetup(1);
+	$createRequest->setService(1);
+	$createRequest->setOrderNumber(uniqid());
+	$createRequest->setSsn($config->orgNoOrssn);
+	$createRequest->setEmailAddress($config->emailAddress);
+	$invoiceRow1 = new \Berazy\Bookkeeping\Contract\InvoiceRowType();
+	$invoiceRow2 = new \Berazy\Bookkeeping\Contract\InvoiceRowType();
+	$createRequest->setInvoiceRows(array(
+		$invoiceRow1
+			->setArticleNumber('1234')
+			->setArticleText('USB Kingston')
+			->setVat(25)
+			->setPrice(20000)
+			->setQuantity(5)
+			->setBookkeepingAccount(3010),
+		$invoiceRow2
+			->setArticleNumber('5678')
+			->setArticleText('Support')
+			->setVat(25)
+			->setPrice(10000)
+			->setQuantity(2)
+			->setUnit('h')
+			->setBookkeepingAccount(3010)
+	));
+	$createInvoice->setRequest($createRequest);
+
+/********************************************************************************
+ * Send invoice request
+ *******************************************************************************/
+	
+	/*
+	try {
+		$response = $client->CreateInvoice($createInvoice); 
+		var_dump($response);
+		var_dump($client->getLastRequest());
+		// if ($response->response->statusCode == 1) then SUCCESS
+		// if ($response->response->statusCode == 0) then FAILURE, check error code and description.
+		// $response->response->errorCode
+		// $response->response->description
+	} catch (\Berazy\Bookkeeping\Exception\XsdValidationException $e) {
+		// Do logging here ...
+		echo 'Looks like we got an error: ' . $e->getMessage();
+	} catch (\Exception $e) {
+		// Do logging here ...
+		echo 'Looks like we got an error: ' . $e->getMessage();
+	}
+	*/
+
+/********************************************************************************
+ * Create credit request
+ *******************************************************************************/
+ 
+	$creditInvoice = new \Berazy\Bookkeeping\Contract\CreditInvoiceRequest();
+	$creditRequest = new \Berazy\Bookkeeping\Contract\CreditInvoiceRequestType();
+	$creditRequest->setIsTestModeEnabled('true');
+	$creditRequest->setIsVatIncluded(1);
+	$creditRequest->setPrintSetup(1);
+	$creditRequest->setOcr($config->creditOcr);
+	$creditRequest->setEmailAddress($config->emailAddress);
+	$creditRow1 = new \Berazy\Bookkeeping\Contract\CreditRowType();
+	$creditRow2 = new \Berazy\Bookkeeping\Contract\CreditRowType();
+	$creditRequest->setCreditRows(array(
+		$creditRow1
+			->setArticleNumber('1234')
+			->setVat(25)
+			->setQuantity(5)
+			->setPrice(100000),
+		$creditRow2
+			->setArticleNumber('5678')
+			->setVat(25)
+			->setQuantity(2)
+			->setPrice(20000)
+	));
+	$creditInvoice->setRequest($creditRequest);
+
+/********************************************************************************
+ * Send credit request
+ *******************************************************************************/
+
+	/*
+	try {
+		$response = $client->CreditInvoice($creditInvoice); 
+		var_dump($response);
+		var_dump($client->getLastRequest());
+		// if ($response->response->statusCode == 1) then SUCCESS
+		// if ($response->response->statusCode == 0) then FAILURE, check error code and description.
+		// $response->response->errorCode
+		// $response->response->description
+	} catch (\Berazy\Bookkeeping\Exception\XsdValidationException $e) {
+		// Do logging here ...
+		echo 'Looks like we got an error: ' . $e->getMessage();
+	} catch (\Exception $e) {
+		// Do logging here ...
+		echo 'Looks like we got an error: ' . $e->getMessage();
+	}
+	*/
+
+?>

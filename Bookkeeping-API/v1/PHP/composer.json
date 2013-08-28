@@ -1,0 +1,24 @@
+{
+    "name": "berazy/bookkeeping",
+    "type": "library",
+    "description": "Berazy Invoice Bookkeepting API client",
+    "keywords": ["berazy", "api", "bookkeeping"],
+    "homepage": "https://github.com/berazyab/Berazy-Invoice-API",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Johan Sall larson",
+            "email": "johan@berazy.se"
+        },
+		{
+            "name": "Simon Stal",
+            "email": "simon@berazy.se"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}
