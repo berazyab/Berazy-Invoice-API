@@ -1,10 +1,12 @@
-package berazy.examples.service;
-
+<?php
 /**
  * Berazy Invoice SOAP API Client
  *
- * @author    <a href="mailto:johan@berazy.se">Johan Sall Larsson</a>
- * @version   1.0.0
+ * @author      Johan Sall Larsson <johan@berazy.se>
+ * @author      Simon Stal <simon@berazy.se>
+ * @copyright   2013 Berazy AB (publ)
+ * @version     2.0.0
+ * @package     Berazy
  *
  * MIT LICENSE
  *
@@ -28,60 +30,66 @@ package berazy.examples.service;
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-import http.schema_invoice_berazy_se.v2.InvoiceService;
-import http.schema_invoice_berazy_se.v2.InvoiceService_Service;
+namespace Berazy\Invoice\Contract;
 
 /**
- * Service singleton.
+ * SOAP request type base class.
  *
- * @author <a href="mailto:johan@berazy.se">Johan Sall Larsson</a>
- * @since  1.0.0
+ * @package Berazy
+ * @author  Johan Sall Larsson <johan@berazy.se>
+ * @author  Simon Stal <simon@berazy.se>
+ * @since   2.0.0
  */
-public class InvoiceServiceAgent {
+class AuthenticationType {
 
     /**
-     * Thread safe instance.
+     * The key is used to authenticate the request.
+     * @var string
      */
-    static InvoiceServiceAgent instance;
+    public $key;
     
     /**
-     * Read lock to prevent re-initialization.
+     * The account to charge.
+     * @var int
      */
-    static final Object readLock = new Object();
+    public $customerno;
+    
+    /********************************************************************************
+     * Getters and setters
+     *******************************************************************************/
     
     /**
-     * The invoice service.
+     * Returns the key.
+     * @returns string
      */
-    InvoiceService invoiceService;
-    
-    /**
-     * Default constructor.
-     */
-    InvoiceServiceAgent() {
-        invoiceService = new InvoiceService_Service().getInvoiceServicePort();
+    public function getKey() {
+        return $this->key;
     }
     
     /**
-     * Returns the thread safe instance.
-     * @return InvoiceServiceAgent
+     * Sets the key.
+     * @param string $key
      */
-    public static InvoiceServiceAgent getInstance() {
-        if (instance == null) {
-            synchronized(readLock) {
-                if (instance == null) {
-                   instance = new InvoiceServiceAgent();
-                }
-            }
-        }
-        return instance;
+    public function setKey($key) {
+        $this->key = $key;
     }
     
     /**
-     * Returns the service.
-     * @return InvoiceService
+     * Returns the customer number.
+     * @returns int
      */
-    public InvoiceService getService() {
-        return invoiceService;
+    public function getCustomerNo() {
+        return $customerno;
+    }
+    
+    /**
+     * Sets the customer number.
+     * @param int $customerno
+     */
+    public function setCustomerNo($customerno) {
+        $this->customerno = $customerno;
     }
     
 }
+
+?>
