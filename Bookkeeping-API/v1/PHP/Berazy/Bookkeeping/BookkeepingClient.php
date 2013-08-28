@@ -35,218 +35,218 @@ namespace Berazy\Bookkeeping;
 /**
  * The Berazy Invoice Bookkeeping API client.
  *
- * @package	Berazy
- * @author	Johan Sall Larsson <johan@berazy.se>
- * @author	Simon Stal <simon@berazy.se>
- * @since	1.0.0
+ * @package    Berazy
+ * @author    Johan Sall Larsson <johan@berazy.se>
+ * @author    Simon Stal <simon@berazy.se>
+ * @since    1.0.0
  */
 class BookkeepingClient {
 
-	/**
-	 * The customer number.
-	 * @var int
-	 */
-	private $customerNumber;
-	
-	/**
-	 * The authorization token.
-	 * @var string
-	 */
-	private $authToken;
-	
-	/**
-	 * The IP address.
-	 * @var	string
-	 */
-	private $ipAddress;
-	
-	/**
-	 * If the XML data should be validated
-	 * by the XSD file before the request.
-	 * @var	bool
-	 */
-	private $validateXsdBeforeRequest;
-	
-	/**
-	 * The XML data that is sent in the POST request.
-	 * @var	string
-	 */
-	private $lastRequest;
-	
-	/********************************************************************************
+    /**
+     * The customer number.
+     * @var int
+     */
+    private $customerNumber;
+    
+    /**
+     * The authorization token.
+     * @var string
+     */
+    private $authToken;
+    
+    /**
+     * The IP address.
+     * @var    string
+     */
+    private $ipAddress;
+    
+    /**
+     * If the XML data should be validated
+     * by the XSD file before the request.
+     * @var    bool
+     */
+    private $validateXsdBeforeRequest;
+    
+    /**
+     * The XML data that is sent in the POST request.
+     * @var    string
+     */
+    private $lastRequest;
+    
+    /********************************************************************************
      * Public Functions
      *******************************************************************************/
-	
-	/**
-	 * Creates an invoice.
-	 * @param	CreateInvoiceRequest	$request
-	 */
-	public function CreateInvoice(Contract\CreateInvoiceRequest $request) {
-		return $this->sendRequest('http://www.berazy.se/API/createInvoiceBookkeeping', $request);
-	}
-	
-	/**
-	 * Creates an invoice.
-	 * @param	CreditInvoiceRequest	$request
-	 */
-	public function CreditInvoice(Contract\CreditInvoiceRequest $request) {
-		return $this->sendRequest('http://www.berazy.se/API/creditInvoice', $request);
-	}
-	 
-	/********************************************************************************
-	 * Getters and setters
-	 *******************************************************************************/
-	 
-	/**
-	 * Returns the customer number.
-	 * @return	int
-	 */
-	public function getCustomerNumber() {
-		return $this->customerNumber;
-	}
-	
-	/**
-	 * Sets the customer number.
-	 * @return	this
-	 */
-	public function setCustomerNumber($customerNumber) {
-		$this->customerNumber = $customerNumber;
-		return $this;
-	}
-	
-	/**
-	 * Returns the authorization token.
-	 * @return	string
-	 */
-	public function getAuthToken() {
-		return $this->authToken;
-	}
-	
-	/**
-	 * Sets the authorization token.
-	 * @return	this
-	 */
-	public function setAuthToken($authToken) {
-		$this->authToken = $authToken;
-		return $this;
-	}
-	
-	/**
-	 * Returns the IP address.
-	 * @return	string
-	 */
-	public function getIpAddress() {
-		return $this->ipAddress;
-	}
-	
-	/**
-	 * Sets the IP address.
-	 * @param	this
-	 */
-	public function setIpAddress($ipAddress) {
-		$this->ipAddress = $ipAddress;
-		return $this;
-	}
-	
-	/**
-	 * Returns the validate XML data before request.
-	 * @return	bool
-	 */
-	public function getValidateXsdBeforeRequest() {
-		return $this->validateXsdBeforeRequest;
-	}
-	
-	/**
-	 * Sets the validate XML data before request.
-	 * @param	bool	$validateXsdBeforeRequest
-	 * @return	this
-	 */
-	public function setValidateXsdBeforeRequest($validateXsdBeforeRequest) {
-		$this->validateXsdBeforeRequest = $validateXsdBeforeRequest;
-		return $this;
-	}
-	
-	/**
-	 * Returns the XML data in the POST request.
-	 * @return	string
-	 */
-	public function getLastRequest() {
-		return $this->lastRequest;
-	}
-	
-	/**
-	 * Sets the XML data in the POST request.
-	 * @param	string	$lastRequest
-	 */
-	private function setLastRequest($lastRequest) {
-		$this->lastRequest = $lastRequest;
-	}
-	
-	/********************************************************************************
+    
+    /**
+     * Creates an invoice.
+     * @param    CreateInvoiceRequest    $request
+     */
+    public function CreateInvoice(Contract\CreateInvoiceRequest $request) {
+        return $this->sendRequest('http://www.berazy.se/API/createInvoiceBookkeeping', $request);
+    }
+    
+    /**
+     * Creates an invoice.
+     * @param    CreditInvoiceRequest    $request
+     */
+    public function CreditInvoice(Contract\CreditInvoiceRequest $request) {
+        return $this->sendRequest('http://www.berazy.se/API/creditInvoice', $request);
+    }
+     
+    /********************************************************************************
+     * Getters and setters
+     *******************************************************************************/
+     
+    /**
+     * Returns the customer number.
+     * @return    int
+     */
+    public function getCustomerNumber() {
+        return $this->customerNumber;
+    }
+    
+    /**
+     * Sets the customer number.
+     * @return    this
+     */
+    public function setCustomerNumber($customerNumber) {
+        $this->customerNumber = $customerNumber;
+        return $this;
+    }
+    
+    /**
+     * Returns the authorization token.
+     * @return    string
+     */
+    public function getAuthToken() {
+        return $this->authToken;
+    }
+    
+    /**
+     * Sets the authorization token.
+     * @return    this
+     */
+    public function setAuthToken($authToken) {
+        $this->authToken = $authToken;
+        return $this;
+    }
+    
+    /**
+     * Returns the IP address.
+     * @return    string
+     */
+    public function getIpAddress() {
+        return $this->ipAddress;
+    }
+    
+    /**
+     * Sets the IP address.
+     * @param    this
+     */
+    public function setIpAddress($ipAddress) {
+        $this->ipAddress = $ipAddress;
+        return $this;
+    }
+    
+    /**
+     * Returns the validate XML data before request.
+     * @return    bool
+     */
+    public function getValidateXsdBeforeRequest() {
+        return $this->validateXsdBeforeRequest;
+    }
+    
+    /**
+     * Sets the validate XML data before request.
+     * @param    bool    $validateXsdBeforeRequest
+     * @return    this
+     */
+    public function setValidateXsdBeforeRequest($validateXsdBeforeRequest) {
+        $this->validateXsdBeforeRequest = $validateXsdBeforeRequest;
+        return $this;
+    }
+    
+    /**
+     * Returns the XML data in the POST request.
+     * @return    string
+     */
+    public function getLastRequest() {
+        return $this->lastRequest;
+    }
+    
+    /**
+     * Sets the XML data in the POST request.
+     * @param    string    $lastRequest
+     */
+    private function setLastRequest($lastRequest) {
+        $this->lastRequest = $lastRequest;
+    }
+    
+    /********************************************************************************
      * Private Functions
      *******************************************************************************/
-	 
-	/**
-	 * Sends the POST request.
-	 * @param	string				$serviceUrl
-	 * @param	object				$obj
-	 * @return	SimpleXMLElement
-	 */
-	private function sendRequest($serviceUrl, $obj) {
-	
-		$serializer = new \Berazy\Bookkeeping\Serializer\XmlSerializer();
-		$xmlDoc = $serializer->serialize($obj);
-		$post = $xmlDoc->asXML();
-		$this->setLastRequest($post);		
-		if ($this->getValidateXsdBeforeRequest()) {
-			$this->validateXsd($xmlDoc, $post);
-		}
-		$ch = curl_init();
-		curl_setopt_array($ch, array( 
-			CURLOPT_POST => 1, 
-			CURLOPT_HEADER => 0, 
-			CURLOPT_URL => $serviceUrl, 
-			CURLOPT_FRESH_CONNECT => 1, 
-			CURLOPT_RETURNTRANSFER => 1, 
-			CURLOPT_FORBID_REUSE => 1, 
-			CURLOPT_TIMEOUT => 9, 
-			CURLOPT_POSTFIELDS => $post,
-			CURLOPT_HTTPHEADER => array(
-				'Content-Type: text/xml', 
-				sprintf('customerNo: %s', $this->getCustomerNumber()), 
-				sprintf('key: %s', md5($this->getIpAddress() . date('Ymd') . $this->getAuthToken())), 
-				sprintf('Content-length: %s', strlen($post))
-			)
-		));
-		if (!$result = curl_exec($ch)) { 
-			trigger_error(curl_error($ch)); 
-		} 
-		curl_close($ch); 
-		$retval = simplexml_load_string($result);
-		return $retval;
-		
-	}
-	
-	/**
-	 * Validates the XML by XSD schema.
-	 * @param	SimpleXMLElement		$xmlDoc
-	 * @param	string					$data
-	 * @throws	XsdValidationException
-	 */
-	private function validateXsd($xmlDoc, $data) {
-		$attr = $xmlDoc->attributes();
-		$schemaLocation = explode(' ', $attr["schemaLocation"]);
-		$doc = new \DomDocument;
-		$doc->loadXML($data);
-		libxml_use_internal_errors(TRUE);
-		if (!$doc->schemaValidate($schemaLocation[1])) {
-			return TRUE;
-		} else {
-			$errors = libxml_get_errors();
-			throw new \Berazy\Bookkeeping\Exception\XsdValidationException("XSD validation failed!\n\n" . var_export(error_get_last(), TRUE));
-		}
-	}
-	
+     
+    /**
+     * Sends the POST request.
+     * @param    string                $serviceUrl
+     * @param    object                $obj
+     * @return    SimpleXMLElement
+     */
+    private function sendRequest($serviceUrl, $obj) {
+    
+        $serializer = new \Berazy\Bookkeeping\Serializer\XmlSerializer();
+        $xmlDoc = $serializer->serialize($obj);
+        $post = $xmlDoc->asXML();
+        $this->setLastRequest($post);        
+        if ($this->getValidateXsdBeforeRequest()) {
+            $this->validateXsd($xmlDoc, $post);
+        }
+        $ch = curl_init();
+        curl_setopt_array($ch, array( 
+            CURLOPT_POST => 1, 
+            CURLOPT_HEADER => 0, 
+            CURLOPT_URL => $serviceUrl, 
+            CURLOPT_FRESH_CONNECT => 1, 
+            CURLOPT_RETURNTRANSFER => 1, 
+            CURLOPT_FORBID_REUSE => 1, 
+            CURLOPT_TIMEOUT => 9, 
+            CURLOPT_POSTFIELDS => $post,
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: text/xml', 
+                sprintf('customerNo: %s', $this->getCustomerNumber()), 
+                sprintf('key: %s', md5($this->getIpAddress() . date('Ymd') . $this->getAuthToken())), 
+                sprintf('Content-length: %s', strlen($post))
+            )
+        ));
+        if (!$result = curl_exec($ch)) { 
+            trigger_error(curl_error($ch)); 
+        } 
+        curl_close($ch); 
+        $retval = simplexml_load_string($result);
+        return $retval;
+        
+    }
+    
+    /**
+     * Validates the XML by XSD schema.
+     * @param    SimpleXMLElement        $xmlDoc
+     * @param    string                    $data
+     * @throws    XsdValidationException
+     */
+    private function validateXsd($xmlDoc, $data) {
+        $attr = $xmlDoc->attributes();
+        $schemaLocation = explode(' ', $attr["schemaLocation"]);
+        $doc = new \DomDocument;
+        $doc->loadXML($data);
+        libxml_use_internal_errors(TRUE);
+        if (!$doc->schemaValidate($schemaLocation[1])) {
+            return TRUE;
+        } else {
+            $errors = libxml_get_errors();
+            throw new \Berazy\Bookkeeping\Exception\XsdValidationException("XSD validation failed!\n\n" . var_export(error_get_last(), TRUE));
+        }
+    }
+    
 }
 
 ?>
