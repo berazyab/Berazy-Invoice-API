@@ -94,8 +94,8 @@ class BookkeepingClient {
 	}
 	 
 	/********************************************************************************
-     * Getters and setters
-     *******************************************************************************/
+	 * Getters and setters
+	 *******************************************************************************/
 	 
 	/**
 	 * Returns the customer number.
@@ -236,14 +236,14 @@ class BookkeepingClient {
 	private function validateXsd($xmlDoc, $data) {
 		$attr = $xmlDoc->attributes();
 		$schemaLocation = explode(' ', $attr["schemaLocation"]);
-        $doc = new \DomDocument;
-        $doc->loadXML($data);
-        libxml_use_internal_errors(TRUE);
-        if (!$doc->schemaValidate($schemaLocation[1])) {
+		$doc = new \DomDocument;
+		$doc->loadXML($data);
+		libxml_use_internal_errors(TRUE);
+		if (!$doc->schemaValidate($schemaLocation[1])) {
 			return TRUE;
-        } else {
+		} else {
 			$errors = libxml_get_errors();
-            throw new \Berazy\Bookkeeping\Exception\XsdValidationException("XSD validation failed!\n\n" . var_export(error_get_last(), TRUE));
+			throw new \Berazy\Bookkeeping\Exception\XsdValidationException("XSD validation failed!\n\n" . var_export(error_get_last(), TRUE));
 		}
 	}
 	
