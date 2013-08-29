@@ -69,7 +69,7 @@ class InvoiceClient extends \SoapClient {
         'ActivateInvoiceRequestType' => 'Contract\ActivateInvoiceRequestType', 
         'ResendInvoiceRequest'       => 'Contract\ResendInvoiceRequest',
         'ResendInvoiceRequestType'   => 'Contract\ResendInvoiceRequestType',
-        'PauseInvoiceRequest'        => 'Contract\PauseInvoiceRequest'
+        'PauseInvoiceRequest'        => 'Contract\PauseInvoiceRequest',
         'PauseInvoiceRequestType'    => 'Contract\PauseInvoiceRequestType',
         'SearchCompanyRequest'       => 'Contract\SearchCompanyRequest',
         'SearchCompanyRequestType'   => 'Contract\SearchCompanyRequestType'

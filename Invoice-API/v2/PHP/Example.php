@@ -42,7 +42,9 @@
 /********************************************************************************
  * Initialize InvoiceClient
  *******************************************************************************/
- 
+	
+	// Override any default options by adding an array in the constructor e.g.
+	// new \Berazy\Invoice\InvoiceClient(array('connection_timeout' => 999));
     $client = new \Berazy\Invoice\InvoiceClient();
     $client->setCustomerNumber('CUSTOMER_NUMBER_AS_INT')
            ->setAuthToken('AUTH_TOKEN');
@@ -130,7 +132,7 @@
     
     /**
      * The client call
-     * @param string $method eg. SsnChek, InvoiceStatus etc
+     * @param string $method eg. SsnCheck, InvoiceStatus etc
      * @param object $request
      */
     function clientCall($method, $request) {
