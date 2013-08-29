@@ -59,14 +59,18 @@ class InvoiceClient extends \SoapClient {
      * @var array
      */
     private $classMap = array(
-        'SsnCheckRequest' => 'Contract\SsnCheckRequest',
-        'SsnCheckRequestType' => 'Contract\SsnCheckRequestType',
-        'InvoiceStatusRequest' => 'Contract\InvoiceStatusRequest',
-        'InvoiceStatusRequestType' => 'Contract\InvoiceStatusRequestType',
-        'InvoiceDetailsRequest' => 'Contract\InvoiceDetailsRequest',
-        'InvoiceDetailsRequestType' => 'Contract\InvoiceDetailsRequestType',
-        'ActivateInvoiceRequest' => 'Contract\ActivateInvoiceRequest',
-        'ActivateInvoiceRequestType' => 'Contract\ActivateInvoiceRequestType'
+        'SsnCheckRequest'            => 'Contract\SsnCheckRequest',
+        'SsnCheckRequestType'        => 'Contract\SsnCheckRequestType',
+        'InvoiceStatusRequest'       => 'Contract\InvoiceStatusRequest',
+        'InvoiceStatusRequestType'   => 'Contract\InvoiceStatusRequestType',
+        'InvoiceDetailsRequest'      => 'Contract\InvoiceDetailsRequest',
+        'InvoiceDetailsRequestType'  => 'Contract\InvoiceDetailsRequestType',
+        'ActivateInvoiceRequest'     => 'Contract\ActivateInvoiceRequest',
+        'ActivateInvoiceRequestType' => 'Contract\ActivateInvoiceRequestType', 
+        'ResendInvoiceRequest'       => 'Contract\ResendInvoiceRequest',
+        'ResendInvoiceRequestType'   => 'Contract\ResendInvoiceRequestType',
+        'PauseInvoiceRequest'        => 'Contract\PauseInvoiceRequest'
+        'PauseInvoiceRequestType'    => 'Contract\PauseInvoiceRequestType'
     );
     
     /**

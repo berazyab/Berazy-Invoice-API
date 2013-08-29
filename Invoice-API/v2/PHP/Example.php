@@ -87,6 +87,30 @@
     $activateInvoiceRequestType->setOcr('OCR_NUMBER_AS_INT');
     $activateInvoiceRequest->setRequest($invoiceDetailsRequestType);
     //clientCall('ActivateInvoice', $activateInvoiceRequest);
+
+/********************************************************************************
+ * ResendInvoice request
+ *******************************************************************************/
+
+    $resendInvoiceRequest = new \Berazy\Invoice\Contract\ResendInvoiceRequest();
+    $resendInvoiceRequestType = new \Berazy\Invoice\Contract\ResendInvoiceRequestType();
+    $resendInvoiceRequestType->setOcr('OCR_NUMBER_AS_INT');
+    $resendInvoiceRequestType->setEmail('EMAIL_ADDRESS');
+    $resendInvoiceRequestType->setInvoice_state(1);
+    $resendInvoiceRequestType->setPrint_setup(1);
+    $resendInvoiceRequest->setRequest($resendInvoiceRequestType);
+    //clientCall('ResendInvoice', $resendInvoiceRequest);
+    
+/********************************************************************************
+ * PauseInvoice request
+ *******************************************************************************/
+
+    $pauseInvoiceRequest = new \Berazy\Invoice\Contract\PauseInvoiceRequest();
+    $pauseInvoiceRequestType = new \Berazy\Invoice\Contract\PauseInvoiceRequestType();
+    $pauseInvoiceRequestType->setOcr('OCR_NUMBER_AS_INT');
+    $pauseInvoiceRequestType->setPause(TRUE);
+    $pauseInvoiceRequest->setRequest($pauseInvoiceRequestType);
+    //clientCall('PauseInvoice', $pauseInvoiceRequest);
     
 /********************************************************************************
  * Client call
