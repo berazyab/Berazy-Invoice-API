@@ -82,7 +82,7 @@ class BookkeepingClient {
      * @param CreateInvoiceRequest $request
      */
     public function CreateInvoice(Contract\CreateInvoiceRequest $request) {
-        return $this->sendRequest('http://www.berazy.se/API/createInvoiceBookkeeping', $request);
+        return $this->sendRequest('https://www.berazy.se/API/createInvoiceBookkeeping', $request);
     }
     
     /**
@@ -90,7 +90,7 @@ class BookkeepingClient {
      * @param CreditInvoiceRequest $request
      */
     public function CreditInvoice(Contract\CreditInvoiceRequest $request) {
-        return $this->sendRequest('http://www.berazy.se/API/creditInvoice', $request);
+        return $this->sendRequest('https://www.berazy.se/API/creditInvoice', $request);
     }
      
     /********************************************************************************

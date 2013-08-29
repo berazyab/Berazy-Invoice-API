@@ -85,7 +85,7 @@ class InvoiceClient extends \SoapClient {
             'profile_agent' => 'PHP-SOAP/'. phpversion() . ', gzip',
             'classmap' => $this->classMap
         ), $options);
-        parent::__construct('http://www.berazy.se/soap/invoice_v2.0?wsdl', $default);
+        parent::__construct('https://www.berazy.se/soap/invoice_v2.0?wsdl', $default);
     }
     
     /**

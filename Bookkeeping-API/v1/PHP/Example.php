@@ -31,39 +31,12 @@
  */
  
 /********************************************************************************
- * Example configuration.
+ * >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> README <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ * 1. Set a valid customer number and authentication token.
+ * 2. Uncomment any operation and set proper values.
+ * 3. Run.
  *******************************************************************************/
- 
-    $config = array(
-        'customerNumber' => NULL, 
-        'authToken'      => NULL,
-        'ipAddress'      => NULL,
-        'orgNoOrssn'     => NULL,
-        'emailAddress'   => NULL,
-        'creditOcr'      => NULL
-    );
- 
-    foreach($config as $configValue) {
-        if ($configValue == NULL) {
-            die('All config values must be set!');
-        }
-    }
-    
-    $config = (object) $config;
- 
-/********************************************************************************
- * Custom autoloading
- * Do not use if you are using Composer to autoload dependencies.
- *******************************************************************************/
-     
-    function customAutoLoader($class) {
-        $file = rtrim(dirname(__FILE__), '/') . '/' . $class . '.php';
-        if (file_exists($file)) {
-            require $file;
-        } else {
-            return;
-        }
-    }
+  
     spl_autoload_register('customAutoLoader');
 
 /********************************************************************************
@@ -71,9 +44,9 @@
  *******************************************************************************/
  
     $client = new \Berazy\Bookkeeping\BookkeepingClient();
-    $client ->setCustomerNumber($config->customerNumber)
-            ->setAuthToken($config->authToken)
-            ->setIpAddress($config->ipAddress)
+    $client ->setCustomerNumber('CUSTOMER_NUMBER_AS_INT')
+            ->setAuthToken('AUTH_TOKEN')
+            ->setIpAddress('IP_ADDRESS')
             ->setValidateXsdBeforeRequest(FALSE);
 
 /********************************************************************************
@@ -86,8 +59,8 @@
     $createRequest->setPrintSetup(1);
     $createRequest->setService(1);
     $createRequest->setOrderNumber(uniqid());
-    $createRequest->setSsn($config->orgNoOrssn);
-    $createRequest->setEmailAddress($config->emailAddress);
+    $createRequest->setSsn('ORG_NO_OR_SSN');
+    $createRequest->setEmailAddress('EMAIL_ADDRESS');
     $invoiceRow1 = new \Berazy\Bookkeeping\Contract\InvoiceRowType();
     $invoiceRow2 = new \Berazy\Bookkeeping\Contract\InvoiceRowType();
     $createRequest->setInvoiceRows(array(
@@ -108,31 +81,10 @@
             ->setBookkeepingAccount(3010)
     ));
     $createInvoice->setRequest($createRequest);
+	clientCall('CreateInvoice', $createInvoice);
 
 /********************************************************************************
- * Send invoice request
- *******************************************************************************/
-    
-    /*
-    try {
-        $response = $client->CreateInvoice($createInvoice); 
-        var_dump($response);
-        var_dump($client->getLastRequest());
-        // if ($response->response->statusCode == 1) then SUCCESS
-        // if ($response->response->statusCode == 0) then FAILURE, check error code and description.
-        // $response->response->errorCode
-        // $response->response->description
-    } catch (\Berazy\Bookkeeping\Exception\XsdValidationException $e) {
-        // Do logging here ...
-        echo 'Looks like we got an error: ' . $e->getMessage();
-    } catch (\Exception $e) {
-        // Do logging here ...
-        echo 'Looks like we got an error: ' . $e->getMessage();
-    }
-    */
-
-/********************************************************************************
- * Create credit request
+ * Credit invoice request
  *******************************************************************************/
  
     $creditInvoice = new \Berazy\Bookkeeping\Contract\CreditInvoiceRequest();
@@ -140,8 +92,8 @@
     $creditRequest->setIsTestModeEnabled('true');
     $creditRequest->setIsVatIncluded(1);
     $creditRequest->setPrintSetup(1);
-    $creditRequest->setOcr($config->creditOcr);
-    $creditRequest->setEmailAddress($config->emailAddress);
+    $creditRequest->setOcr('OCR_NUMBER');
+    $creditRequest->setEmailAddress('EMAIL_ADDRESS');
     $creditRow1 = new \Berazy\Bookkeeping\Contract\CreditRowType();
     $creditRow2 = new \Berazy\Bookkeeping\Contract\CreditRowType();
     $creditRequest->setCreditRows(array(
@@ -157,27 +109,51 @@
             ->setPrice(20000)
     ));
     $creditInvoice->setRequest($creditRequest);
+	//clientCall('CreditInvoice', $creditInvoice);
 
 /********************************************************************************
- * Send credit request
+ * Client call
  *******************************************************************************/
-
-    /*
-    try {
-        $response = $client->CreditInvoice($creditInvoice); 
-        var_dump($response);
-        var_dump($client->getLastRequest());
-        // if ($response->response->statusCode == 1) then SUCCESS
-        // if ($response->response->statusCode == 0) then FAILURE, check error code and description.
-        // $response->response->errorCode
-        // $response->response->description
-    } catch (\Berazy\Bookkeeping\Exception\XsdValidationException $e) {
-        // Do logging here ...
-        echo 'Looks like we got an error: ' . $e->getMessage();
-    } catch (\Exception $e) {
-        // Do logging here ...
-        echo 'Looks like we got an error: ' . $e->getMessage();
+    
+    /**
+     * The client call
+     * @param string $method eg. SsnChek, InvoiceStatus etc
+     * @param object $request
+     */
+    function clientCall($method, $request) {
+        global $client;
+		try {
+			$response = $client->$method($request); 
+			var_dump($response);
+			var_dump($client->getLastRequest());
+			// if ($response->response->statusCode == 1) then SUCCESS
+			// if ($response->response->statusCode == 0) then FAILURE, check error code and description.
+			// $response->response->errorCode
+			// $response->response->description
+		} catch (\Berazy\Bookkeeping\Exception\XsdValidationException $e) {
+			// Do logging here ...
+			echo 'Looks like we got an error: ' . $e->getMessage();
+		} catch (\Exception $e) {
+			// Do logging here ...
+			echo 'Looks like we got an error: ' . $e->getMessage();
+		}
     }
-    */
+	
+/********************************************************************************
+ * Autoloading. Do NOT use if you are using Composer to autoload dependencies.
+ *******************************************************************************/    
+    
+    /**
+     * Autoloading
+     * @param string $class
+     */
+    function customAutoLoader($class) {
+        $file = rtrim(dirname(__FILE__), '/') . '/' . $class . '.php';
+        if (file_exists($file)) {
+            require $file;
+        } else {
+            return;
+        }
+    }
 
 ?>

@@ -5,7 +5,7 @@
  * @author      Johan Sall Larsson <johan@berazy.se>
  * @author      Simon Stal <simon@berazy.se>
  * @copyright   2013 Berazy AB (publ)
- * @version     1.0.0
+ * @version     2.0.0
  * @package     Berazy
  *
  * MIT LICENSE
