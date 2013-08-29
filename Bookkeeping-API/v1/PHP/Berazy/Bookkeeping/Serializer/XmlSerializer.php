@@ -131,8 +131,8 @@ class XmlSerializer
     private function getXmlAttributes($docBlock)
     {
         $retval = array();
-        if (preg_match_all('/@Xml(\w+)\s+(.*)\r?\n/m', $docBlock, $matches)){
-            for($i = 0; $i < count($matches[1]); $i++) {
+        if (preg_match_all('/@Xml(\w+)\s+(.*)\r?\n/m', $docBlock, $matches)) {
+            for ($i = 0; $i < count($matches[1]); $i++) {
                 $retval['@Xml'.$matches[1][$i]] = $matches[2][$i];
             }
         }
