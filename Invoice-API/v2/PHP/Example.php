@@ -111,6 +111,18 @@
     $pauseInvoiceRequestType->setPause(TRUE);
     $pauseInvoiceRequest->setRequest($pauseInvoiceRequestType);
     //clientCall('PauseInvoice', $pauseInvoiceRequest);
+   
+/********************************************************************************
+ * SearchCompany request
+ *******************************************************************************/
+
+    $searchCompanyRequest = new \Berazy\Invoice\Contract\SearchCompanyRequest();
+    $searchCompanyRequestType = new \Berazy\Invoice\Contract\SearchCompanyRequestType();
+    $searchCompanyRequestType->setCompany_name('Berazy');
+    $searchCompanyRequestType->setPhonetic_search(TRUE);
+    $searchCompanyRequestType->setNumber_hits(10);
+    $searchCompanyRequest->setRequest($searchCompanyRequestType);
+    //clientCall('SearchCompany', $searchCompanyRequest);
     
 /********************************************************************************
  * Client call
