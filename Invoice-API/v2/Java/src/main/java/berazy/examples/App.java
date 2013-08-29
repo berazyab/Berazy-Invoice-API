@@ -57,7 +57,10 @@ import http.types_invoice_berazy_se.v2.SearchCompanyResponseType;
 import http.types_invoice_berazy_se.v2.SsnCheckRequestType;
 import http.types_invoice_berazy_se.v2.SsnCheckResponseType;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.util.Properties;
 import java.util.Scanner;
 
 import berazy.examples.service.InvoiceServiceAgent;
@@ -71,40 +74,28 @@ import berazy.examples.service.InvoiceServiceAgent;
 public class App {
     
     /**
-     * The API key used in all examples.
+     * The Authentication token/key used in all examples.
+     * Set by profile in POM file during build.
      * @remarks Mandatory for all requests.
      */
-    static final String API_KEY = null;
+    static String authToken;
 
     /**
      * The customer number used in all examples.
+     * Set by profile in POM file during build.
      * @remarks Mandatory for all requests.
      */
-    static final int CUSTOMER_NO = -1;
-
-    /**
-     * A test organizational number or unique identifier number for an individual.
-     */
-    static final String TEST_ORG_NO = null; 
-
-    /**
-     * A test OCR invoice number.
-     */
-    static final int TEST_OCR_NO = -1;
-
-    /**
-     * A test company name.
-     */
-    static final String TEST_COMPANY_NAME = null; 
+    static int customerNo;
     
     /**
      * Operation examples.
      * @param args
      */
-    public static void main( String[] args ) {
-        verifySetup();
+    public static void main(String[] args) {
+
         Scanner scanner = null;
         try {
+            loadProperties();
             System.out.println("Choose operation to invoke:\n");
             System.out.println("1. SsnCheck");
             System.out.println("2. InvoiceStatus");
@@ -148,17 +139,32 @@ public class App {
     }
     
     /**
-     * Verifies setup.
+     * Loads the .properties file and sets authToken
+     * and customerNo.
+     * @throws IllegalArgumentException
      */
-    @SuppressWarnings("unused")
-    static void verifySetup() {
-        if (API_KEY == null || 
-            CUSTOMER_NO < 0 ||
-               TEST_ORG_NO == null || 
-               TEST_OCR_NO < 0 || 
-               TEST_COMPANY_NAME == null
-        ) {
-            throw new IllegalArgumentException("All tests need all constants to be set.");
+    static void loadProperties() {
+        try {
+            ClassLoader loader = App.class.getClassLoader();
+            InputStream in = loader.getResourceAsStream("invoice-api-settings.properties");
+            Properties properties = new Properties();
+            properties.load(in);
+            authToken = properties.getProperty("authToken");
+            customerNo = Integer.parseInt(properties.getProperty("customerNo"));
+        } catch (IOException e) {
+            throw new IllegalArgumentException("A valid authToken and customerNo must be set in the .pom file before build!");
+        }
+    }
+    
+    /**
+     * Null checker.
+     * @param obj the object to be tested
+     * @param str exception message
+     * @throws IllegalArgumentException
+     */
+    static void throwIfNull(Object obj, String str) {
+        if (obj == null) {
+            throw new IllegalArgumentException(str);
         }
     }
     
@@ -187,13 +193,15 @@ public class App {
     
     /**
      * Executes the "SsnCheck" operation.
-     * @return
+     * @return SsnCheckResponseType
      */
     static SsnCheckResponseType ssnCheck() {
+        String orgNoOrSsn = null;
+        throwIfNull(orgNoOrSsn, "Organizational number or social security number must be set!");
         SsnCheckRequestType requestType = new SsnCheckRequestType();
-        requestType.setKey(API_KEY);
-        requestType.setCustomerno(CUSTOMER_NO);
-        requestType.setSsn(TEST_ORG_NO);
+        requestType.setKey(authToken);
+        requestType.setCustomerno(customerNo);
+        requestType.setSsn(orgNoOrSsn);
         requestType.setCreditCheck(0);
         SsnCheckRequest request = new SsnCheckRequest();
         request.setRequest(requestType);
@@ -203,13 +211,15 @@ public class App {
     
     /**
      * Executes the "InvoiceStatus" operation.
-     * @return
+     * @return InvoiceStatusResponseType
      */
     static InvoiceStatusResponseType invoiceStatus() {
+        Integer ocrNumber = null;
+        throwIfNull(ocrNumber, "OCR number must be set!");
         InvoiceStatusRequestType requestType = new InvoiceStatusRequestType();
-        requestType.setKey(API_KEY);
-        requestType.setCustomerno(CUSTOMER_NO);
-        requestType.setOcr(TEST_OCR_NO);
+        requestType.setKey(authToken);
+        requestType.setCustomerno(customerNo);
+        requestType.setOcr(ocrNumber);
         InvoiceStatusRequest request = new InvoiceStatusRequest();
         request.setRequest(requestType);
         InvoiceStatusResponse response = InvoiceServiceAgent.getInstance().getService().invoiceStatus(request);
@@ -218,13 +228,15 @@ public class App {
     
     /**
      * Executes the "InvoiceDetails" operation.
-     * @return
+     * @return InvoiceDetailsResponseType
      */
     static InvoiceDetailsResponseType invoiceDetails() {
+        Integer ocrNumber = null;
+        throwIfNull(ocrNumber, "OCR number must be set!");
         InvoiceDetailsRequestType requestType = new InvoiceDetailsRequestType();
-        requestType.setKey(API_KEY);
-        requestType.setCustomerno(CUSTOMER_NO);
-        requestType.setOcr(TEST_OCR_NO);
+        requestType.setKey(authToken);
+        requestType.setCustomerno(customerNo);
+        requestType.setOcr(ocrNumber);
         InvoiceDetailsRequest request = new InvoiceDetailsRequest();
         request.setRequest(requestType);
         InvoiceDetailsResponse response = InvoiceServiceAgent.getInstance().getService().invoiceDetails(request);
@@ -233,13 +245,15 @@ public class App {
     
     /**
      * Executes the "ActivateInvoice" operation.
-     * @return
+     * @return ActivateInvoiceResponseType
      */
     static ActivateInvoiceResponseType activateInvoice() {
+        Integer ocrNumber = null;
+        throwIfNull(ocrNumber, "OCR number must be set!");
         ActivateInvoiceRequestType requestType = new ActivateInvoiceRequestType();
-        requestType.setKey(API_KEY);
-        requestType.setCustomerno(CUSTOMER_NO);
-        requestType.setOcr(TEST_OCR_NO);
+        requestType.setKey(authToken);
+        requestType.setCustomerno(customerNo);
+        requestType.setOcr(ocrNumber);
         ActivateInvoiceRequest request = new ActivateInvoiceRequest();
         request.setRequest(requestType);
         ActivateInvoiceResponse response = InvoiceServiceAgent.getInstance().getService().activateInvoice(request);
@@ -248,13 +262,15 @@ public class App {
 
     /**
      * Executes the "ResendInvoice" operation.
-     * @return
+     * @return ResendInvoiceResponseType
      */
     static ResendInvoiceResponseType resendInvoice() {
+        Integer ocrNumber = null;
+        throwIfNull(ocrNumber, "OCR number must be set!");
         ResendInvoiceRequestType requestType = new ResendInvoiceRequestType();
-        requestType.setKey(API_KEY);
-        requestType.setCustomerno(CUSTOMER_NO);
-        requestType.setOcr(TEST_OCR_NO);
+        requestType.setKey(authToken);
+        requestType.setCustomerno(customerNo);
+        requestType.setOcr(ocrNumber);
         requestType.setCoAddress1("This");
         requestType.setCoAddress2("is");
         requestType.setCoAddress3("only");
@@ -271,13 +287,15 @@ public class App {
 
     /**
      * Executes the "PauseInvoice" operation.
-     * @return
+     * @return PauseInvoiceResponseType
      */
     static PauseInvoiceResponseType pauseInvoice() {
+        Integer ocrNumber = null;
+        throwIfNull(ocrNumber, "OCR number must be set!");
         PauseInvoiceRequestType requestType = new PauseInvoiceRequestType();
-        requestType.setKey(API_KEY);
-        requestType.setCustomerno(CUSTOMER_NO);
-        requestType.setOcr(TEST_OCR_NO);
+        requestType.setKey(authToken);
+        requestType.setCustomerno(customerNo);
+        requestType.setOcr(ocrNumber);
         PauseInvoiceRequest request = new PauseInvoiceRequest();
         request.setRequest(requestType);
         PauseInvoiceResponse response = InvoiceServiceAgent.getInstance().getService().pauseInvoice(request);
@@ -286,13 +304,13 @@ public class App {
 
     /**
      * Executes the "SearchCompany" operation.
-     * @return
+     * @return SearchCompanyResponseType
      */
     static SearchCompanyResponseType searchCompany() {
         SearchCompanyRequestType requestType = new SearchCompanyRequestType();
-        requestType.setKey(API_KEY);
-        requestType.setCustomerno(CUSTOMER_NO);
-        requestType.setCompanyName(TEST_COMPANY_NAME);
+        requestType.setKey(authToken);
+        requestType.setCustomerno(customerNo);
+        requestType.setCompanyName("Berazy");
         requestType.setPhoneticSearch(true);
         requestType.setNumberHits(10);
         SearchCompanyRequest request = new SearchCompanyRequest();
