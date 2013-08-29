@@ -16,12 +16,12 @@ namespace Berazy.Examples {
         /// <summary>
         /// The endpoint URL.
         /// </summary>
-        const string CreateInvoiceEndpointUrl = "http://www.berazy.se/API/createInvoiceBookkeeping";
+        const string CreateInvoiceEndpointUrl = "https://www.berazy.se/API/createInvoiceBookkeeping";
 
         /// <summary>
         /// The endpoint URL.
         /// </summary>
-        const string CreditInvoiceEndpointUrl = "http://www.berazy.se/API/creditInvoice";
+        const string CreditInvoiceEndpointUrl = "https://www.berazy.se/API/creditInvoice";
 
         #endregion
 

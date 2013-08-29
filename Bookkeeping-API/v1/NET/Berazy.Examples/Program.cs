@@ -59,7 +59,7 @@ namespace Berazy.Examples {
                     }
                 } while (line.IsNotNull());
             } catch (Exception ex) {
-                Console.WriteLine("\nAn exception occured, press CTRL+Z to exit or enter 'q', 'quit' or 'exit'.\n\nException: {0}", ex.Message);
+                Console.WriteLine("\nAn exception occured, press CTRL+Z to exit or enter 'q', 'quit' or 'exit'.\n\nException: {0} {1}", ex.Message, ex.InnerException);
                 Console.ReadLine();
             }
         }
