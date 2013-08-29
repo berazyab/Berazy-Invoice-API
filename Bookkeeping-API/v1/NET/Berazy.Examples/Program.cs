@@ -1,5 +1,5 @@
 ﻿using Berazy.Examples.Contracts;
-using Berazy.Examples.Extensions;
+using Berazy.Examples.Utils.Ext;
 using Berazy.Examples.Utils;
 using System;
 using System.Configuration;

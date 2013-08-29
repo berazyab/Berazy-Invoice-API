@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Berazy.Examples.Extensions {
+namespace Berazy.Examples.Utils.Ext {
 
     internal static class ObjectExt {
 
