@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-namespace Berazy\Bookkeeping\Contract;
+namespace Berazy\Bookkeeping\Contract; 
 
 /**
  * Class equivalent to the XML root element methodCall.
@@ -45,7 +45,8 @@ namespace Berazy\Bookkeeping\Contract;
  * @XmlNamespace http://www.berazy.se/API/createInvoiceBookkeeping
  * @XmlSchemaLocation http://www.berazy.se/API/createInvoiceBookkeeping http://www.berazy.se/API/createInvoiceBookkeepingSchema1.0.xsd
  */
-class CreateInvoiceRequest {
+class CreateInvoiceRequest
+{
     
     /**
      * The method name.
@@ -66,21 +67,22 @@ class CreateInvoiceRequest {
     /**
      * @XmlElement methodName
      */
-    public function getMethodName() {
+    public function getMethodName()
+    {
         return $this->methodName;
     }
     
     /**
      * @XmlElement request
      */
-    public function getRequest() {
+    public function getRequest()
+    {
         return $this->request;
     }
 
-    public function setRequest(CreateInvoiceRequestType $request) {
+    public function setRequest(CreateInvoiceRequestType $request)
+    {
         $this->request = $request;
     }
     
 }
-
-?>

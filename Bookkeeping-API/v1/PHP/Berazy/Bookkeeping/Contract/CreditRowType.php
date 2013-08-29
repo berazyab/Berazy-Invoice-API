@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
- namespace Berazy\Bookkeeping\Contract;
+ namespace Berazy\Bookkeeping\Contract; 
 
 /**
  * Class equivalent to the XML element CreditRowType.
@@ -43,7 +43,8 @@
  *
  * @XmlElement creditRow
  */
-class CreditRowType {
+class CreditRowType
+{
 
     /**
      * The article number.
@@ -77,11 +78,13 @@ class CreditRowType {
     /**
      * @XmlElement articleNo
      */
-    public function getArticleNumber() {
+    public function getArticleNumber()
+    {
         return $this->articleNumber;
     }
 
-    public function setArticleNumber($articleNumber) {
+    public function setArticleNumber($articleNumber)
+    {
         $this->articleNumber = $articleNumber;
         return $this;
     }
@@ -89,11 +92,13 @@ class CreditRowType {
     /**
      * @XmlElement vat
      */
-    public function getVat() {
+    public function getVat()
+    {
         return $this->vat;
     }
 
-    public function setVat($vat) {
+    public function setVat($vat)
+    {
         $this->vat = $vat;
         return $this;
     }
@@ -101,11 +106,13 @@ class CreditRowType {
     /**
      * @XmlElement quantity
      */
-    public function getQuantity() {
+    public function getQuantity()
+    {
         return $this->quantity;
     }
 
-    public function setQuantity($quantity) {
+    public function setQuantity($quantity)
+    {
         $this->quantity = $quantity;
         return $this;
     }
@@ -113,15 +120,15 @@ class CreditRowType {
     /**
      * @XmlElement price
      */
-    public function getPrice() {
+    public function getPrice()
+    {
         return $this->price;
     }
 
-    public function setPrice($price) {
+    public function setPrice($price)
+    {
         $this->price = $price;
         return $this;
     }
     
 }
-
-?>

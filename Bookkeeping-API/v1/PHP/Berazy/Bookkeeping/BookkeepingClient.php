@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-namespace Berazy\Bookkeeping;
+namespace Berazy\Bookkeeping; 
 
 /**
  * The Berazy Invoice Bookkeeping API client.
@@ -40,7 +40,8 @@ namespace Berazy\Bookkeeping;
  * @author  Simon Stal <simon@berazy.se>
  * @since   1.0.0
  */
-class BookkeepingClient {
+class BookkeepingClient
+{
 
     /**
      * The customer number.
@@ -81,7 +82,8 @@ class BookkeepingClient {
      * Creates an invoice.
      * @param CreateInvoiceRequest $request
      */
-    public function CreateInvoice(Contract\CreateInvoiceRequest $request) {
+    public function CreateInvoice(Contract\CreateInvoiceRequest $request)
+    {
         return $this->sendRequest('https://www.berazy.se/API/createInvoiceBookkeeping', $request);
     }
     
@@ -89,7 +91,8 @@ class BookkeepingClient {
      * Creates an invoice.
      * @param CreditInvoiceRequest $request
      */
-    public function CreditInvoice(Contract\CreditInvoiceRequest $request) {
+    public function CreditInvoice(Contract\CreditInvoiceRequest $request)
+    {
         return $this->sendRequest('https://www.berazy.se/API/creditInvoice', $request);
     }
      
@@ -101,7 +104,8 @@ class BookkeepingClient {
      * Returns the customer number.
      * @return int
      */
-    public function getCustomerNumber() {
+    public function getCustomerNumber()
+    {
         return $this->customerNumber;
     }
     
@@ -109,7 +113,8 @@ class BookkeepingClient {
      * Sets the customer number.
      * @return this
      */
-    public function setCustomerNumber($customerNumber) {
+    public function setCustomerNumber($customerNumber)
+    {
         $this->customerNumber = $customerNumber;
         return $this;
     }
@@ -118,7 +123,8 @@ class BookkeepingClient {
      * Returns the authorization token.
      * @return string
      */
-    public function getAuthToken() {
+    public function getAuthToken()
+    {
         return $this->authToken;
     }
     
@@ -126,7 +132,8 @@ class BookkeepingClient {
      * Sets the authorization token.
      * @return this
      */
-    public function setAuthToken($authToken) {
+    public function setAuthToken($authToken)
+    {
         $this->authToken = $authToken;
         return $this;
     }
@@ -135,7 +142,8 @@ class BookkeepingClient {
      * Returns the IP address.
      * @return string
      */
-    public function getIpAddress() {
+    public function getIpAddress()
+    {
         return $this->ipAddress;
     }
     
@@ -143,7 +151,8 @@ class BookkeepingClient {
      * Sets the IP address.
      * @param this
      */
-    public function setIpAddress($ipAddress) {
+    public function setIpAddress($ipAddress)
+    {
         $this->ipAddress = $ipAddress;
         return $this;
     }
@@ -152,7 +161,8 @@ class BookkeepingClient {
      * Returns the validate XML data before request.
      * @return bool
      */
-    public function getValidateXsdBeforeRequest() {
+    public function getValidateXsdBeforeRequest()
+    {
         return $this->validateXsdBeforeRequest;
     }
     
@@ -161,7 +171,8 @@ class BookkeepingClient {
      * @param  bool $validateXsdBeforeRequest
      * @return this
      */
-    public function setValidateXsdBeforeRequest($validateXsdBeforeRequest) {
+    public function setValidateXsdBeforeRequest($validateXsdBeforeRequest)
+    {
         $this->validateXsdBeforeRequest = $validateXsdBeforeRequest;
         return $this;
     }
@@ -170,7 +181,8 @@ class BookkeepingClient {
      * Returns the XML data in the POST request.
      * @return string
      */
-    public function getLastRequest() {
+    public function getLastRequest()
+    {
         return $this->lastRequest;
     }
     
@@ -178,7 +190,8 @@ class BookkeepingClient {
      * Sets the XML data in the POST request.
      * @param string $lastRequest
      */
-    private function setLastRequest($lastRequest) {
+    private function setLastRequest($lastRequest)
+    {
         $this->lastRequest = $lastRequest;
     }
     
@@ -192,8 +205,8 @@ class BookkeepingClient {
      * @param    object                $obj
      * @return   SimpleXMLElement
      */
-    private function sendRequest($serviceUrl, $obj) {
-    
+    private function sendRequest($serviceUrl, $obj)
+    {
         $serializer = new \Berazy\Bookkeeping\Serializer\XmlSerializer();
         $xmlDoc = $serializer->serialize($obj);
         $post = $xmlDoc->asXML();
@@ -218,13 +231,12 @@ class BookkeepingClient {
                 sprintf('Content-length: %s', strlen($post))
             )
         ));
-        if (!$result = curl_exec($ch)) { 
+        if (! $result = curl_exec($ch)) { 
             trigger_error(curl_error($ch)); 
         } 
         curl_close($ch); 
         $retval = simplexml_load_string($result);
         return $retval;
-        
     }
     
     /**
@@ -233,7 +245,8 @@ class BookkeepingClient {
      * @param    string                  $data
      * @throws   XsdValidationException
      */
-    private function validateXsd($xmlDoc, $data) {
+    private function validateXsd($xmlDoc, $data)
+    {
         $attr = $xmlDoc->attributes();
         $schemaLocation = explode(' ', $attr["schemaLocation"]);
         $doc = new \DomDocument;
@@ -248,5 +261,3 @@ class BookkeepingClient {
     }
     
 }
-
-?>

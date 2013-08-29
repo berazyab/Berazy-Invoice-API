@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-namespace Berazy\Bookkeeping\Serializer;
+namespace Berazy\Bookkeeping\Serializer; 
 
 /**
  * Simple class to XML serializer.
@@ -40,7 +40,8 @@ namespace Berazy\Bookkeeping\Serializer;
  * @author  Simon Stal <simon@berazy.se>
  * @since   1.0.0
  */
-class XmlSerializer {
+class XmlSerializer
+{
     
     /********************************************************************************
      * Public Functions
@@ -51,7 +52,8 @@ class XmlSerializer {
      * @param    object           $class
      * @return   SimpleXMLElement
      */
-    public function serialize($class) {
+    public function serialize($class)
+    {
         return $this->serializeClass($class);
     }
     
@@ -64,7 +66,8 @@ class XmlSerializer {
      * @param    object           $class
      * @return   SimpleXMLElement
      */
-    private function serializeClass($class) {
+    private function serializeClass($class)
+    {
         $reflector = new \ReflectionClass(get_class($class));
         $attributes = $this->getXmlAttributes($reflector->getDocComment());
         if (count($attributes) == 0) {
@@ -88,7 +91,8 @@ class XmlSerializer {
      * @param    SimpleXMLElement $xmlNode
      * @return   SimpleXMLElement
      */
-    private function traverse($objOrArr, \SimpleXMLElement $xmlNode) {  
+    private function traverse($objOrArr, \SimpleXMLElement $xmlNode)
+    {  
         $items = $objOrArr;
         if (is_object($objOrArr)) {
             $items = get_class_methods($objOrArr);
@@ -124,7 +128,8 @@ class XmlSerializer {
      * @param     string           $docBlock
      * @return    SimpleXMLElement
      */
-    private function getXmlAttributes($docBlock) {
+    private function getXmlAttributes($docBlock)
+    {
         $retval = array();
         if (preg_match_all('/@Xml(\w+)\s+(.*)\r?\n/m', $docBlock, $matches)){
             for($i = 0; $i < count($matches[1]); $i++) {
@@ -135,5 +140,3 @@ class XmlSerializer {
     }
     
 }
-
-?>

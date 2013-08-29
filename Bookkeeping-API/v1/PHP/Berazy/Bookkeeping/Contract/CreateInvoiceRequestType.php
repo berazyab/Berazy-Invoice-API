@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
- namespace Berazy\Bookkeeping\Contract;
+ namespace Berazy\Bookkeeping\Contract; 
 
 /**
  * Class equivalent to the XML element RequestType.
@@ -41,7 +41,8 @@
  * @author  Simon Stal <simon@berazy.se>
  * @since   1.0.0
  */
-class CreateInvoiceRequestType {
+class CreateInvoiceRequestType
+{
 
     /**
      * If "true" the invoice won't persist any invoice.
@@ -215,110 +216,130 @@ class CreateInvoiceRequestType {
     /**
      * @XmlElement testInvoice
      */
-    public function isTestModeEnabled() {
+    public function isTestModeEnabled()
+    {
         return $this->isTestModeEnabled;
     }
     
-    public function setIsTestModeEnabled($isTestModeEnabled) {
+    public function setIsTestModeEnabled($isTestModeEnabled)
+    {
         $this->isTestModeEnabled = $isTestModeEnabled;
     }
     
     /**
      * @XmlElement makeInvoiceReservation
      */
-    public function getMakeInvoiceReservation() {
+    public function getMakeInvoiceReservation()
+    {
         return $this->makeInvoiceReservation;
     }
     
-    public function setMakeInvoiceReservation($makeInvoiceReservation) {
+    public function setMakeInvoiceReservation($makeInvoiceReservation)
+    {
         $this->makeInvoiceReservation = $makeInvoiceReservation;
     }
         
     /**
      * @XmlElement forceToSend
      */
-    public function getForceToSend() {
+    public function getForceToSend()
+    {
         return $this->forceToSend;
     }
     
-    public function setForceToSend($forceToSend) {
+    public function setForceToSend($forceToSend)
+    {
         $this->forceToSend = $forceToSend;
     }
     
     /**
      * @XmlElement service
      */
-    public function getService() {
+    public function getService()
+    {
         return $this->service;
     }
     
-    public function setService($service) {
+    public function setService($service)
+    {
         $this->service = $service;
     }
     
     /**
      * @XmlElement printSetup
      */
-    public function getPrintSetup() {
+    public function getPrintSetup()
+    {
         return $this->printSetup;
     }
     
-    public function setPrintSetup($printSetup) {
+    public function setPrintSetup($printSetup)
+    {
         $this->printSetup = $printSetup;
     }
     
     /**
      * @XmlElement ssn
      */
-    public function getSsn() {
+    public function getSsn()
+    {
         return $this->ssn;
     }
     
-    public function setSsn($ssn) {
+    public function setSsn($ssn)
+    {
         $this->ssn = $ssn;
     }
     
     /**
      * @XmlElement send_to_organization
      */
-    public function getSendToOrganization() {
+    public function getSendToOrganization()
+    {
         return $this->sendToOrganization;
     }
     
-    public function setSendToOrganization($sendToOrganization) {
+    public function setSendToOrganization($sendToOrganization)
+    {
         $this->sendToOrganization = $sendToOrganization;
     }
     
     /**
      * @XmlElement foreignCustomer
      */
-    public function getForeignCustomer() {
+    public function getForeignCustomer()
+    {
         return $this->foreignCustomer;
     }
     
-    public function setForeignCustomer(ForeignCustomerType $foreignCustomer) {
+    public function setForeignCustomer(ForeignCustomerType $foreignCustomer)
+    {
         $this->foreignCustomer = $foreignCustomer;
     }
     
     /**
      * @XmlElement careOfAddress
      */
-    public function getCareOfAddress() {
+    public function getCareOfAddress()
+    {
         return $this->careOfAddress;
     }
     
-    public function setCareOfAddress(CareOfAddressType $careOfAddress) {
+    public function setCareOfAddress(CareOfAddressType $careOfAddress)
+    {
         $this->careOfAddress = $careOfAddress;
     }
     
     /**
      * @XmlElement invoiceRef
      */
-    public function getInvoiceReference() {
+    public function getInvoiceReference()
+    {
         return $this->invoiceReference;
     }
     
-    public function setInvoiceReference($invoiceReference) {
+    public function setInvoiceReference($invoiceReference)
+    {
         $this->invoiceReference = $invoiceReference;
     }
     
@@ -336,168 +357,196 @@ class CreateInvoiceRequestType {
     /**
      * @XmlElement shippingFee
      */
-    public function getShippingFee() {
+    public function getShippingFee()
+    {
         return $this->shippingFee;
     }
     
-    public function setShippingFee($shippingFee) {
+    public function setShippingFee($shippingFee)
+    {
         $this->shippingFee = $shippingFee;
     }
     
     /**
      * @XmlElement expFee
      */
-    public function getExpeditionFee() {
+    public function getExpeditionFee()
+    {
         return $this->expeditionFee;
     }
     
-    public function setExpeditionFee($expeditionFee) {
+    public function setExpeditionFee($expeditionFee)
+    {
         $this->expeditionFee = $expeditionFee;
     }
     
     /**
      * @XmlElement invoiceDate
      */
-    public function getInvoiceDate() {
+    public function getInvoiceDate()
+    {
         return $this->invoiceDate;
     }
     
-    public function setInvoiceDate($invoiceDate) {
+    public function setInvoiceDate($invoiceDate)
+    {
         $this->invoiceDate = $invoiceDate;
     }
 
     /**
      * @XmlElement dueDate
      */
-    public function getInvoiceDueDate() {
+    public function getInvoiceDueDate()
+    {
         return $this->invoiceDueDate;
     }
     
-    public function setInvoiceDueDate($invoiceDueDate) {
+    public function setInvoiceDueDate($invoiceDueDate)
+    {
         $this->invoiceDueDate = $invoiceDueDate;
     }
 
     /**
      * @XmlElement clientIp
      */
-    public function getClientIpAddress() {
+    public function getClientIpAddress()
+    {
         return $this->clientIpAddress;
     }
     
-    public function setClientIpAddress($clientIpAddress) {
+    public function setClientIpAddress($clientIpAddress)
+    {
         $this->clientIpAddress = $clientIpAddress;
     }
     
     /**
      * @XmlElement callback
      */
-    public function getCallbackUrl() {
+    public function getCallbackUrl()
+    {
         return $this->callbackUrl;
     }
     
-    public function setCallbackUrl($callbackUrl) {
+    public function setCallbackUrl($callbackUrl)
+    {
         $this->callbackUrl = $callbackUrl;
     }
     
     /**
      * @XmlElement mobile
      */
-    public function getMobile() {
+    public function getMobile()
+    {
         return $this->mobile;
     }
     
-    public function setMobile($mobile) {
+    public function setMobile($mobile)
+    {
         $this->mobile = $mobile;
     }
     
     /**
      * @XmlElement email
      */
-    public function getEmailAddress() {
+    public function getEmailAddress()
+    {
         return $this->emailAddress;
     }
     
-    public function setEmailAddress($emailAddress) {
+    public function setEmailAddress($emailAddress)
+    {
         $this->emailAddress = $emailAddress;
     }
     
     /**
      * @XmlElement orderNo
      */
-    public function getOrderNumber() {
+    public function getOrderNumber()
+    {
         return $this->orderNumber;
     }
     
-    public function setOrderNumber($orderNumber) {
+    public function setOrderNumber($orderNumber)
+    {
         $this->orderNumber = $orderNumber;
     }
     
     /**
      * @XmlElement ourRef
      */
-    public function getOurReference() {
+    public function getOurReference()
+    {
         return $this->ourReference;
     }
     
-    public function setOurReference($ourReference) {
+    public function setOurReference($ourReference)
+    {
         $this->ourReference = $ourReference;
     }
     
     /**
      * @XmlElement yourRef
      */
-    public function getYourReference() {
+    public function getYourReference()
+    {
         return $this->yourReference;
     }
     
-    public function setYourReference($yourReference) {
+    public function setYourReference($yourReference)
+    {
         $this->yourReference = $yourReference;
     }
     
     /**
      * @XmlElement invoiceRows
      */
-    public function getInvoiceRows() {
+    public function getInvoiceRows()
+    {
         return $this->invoiceRows;
     }
     
-    public function setInvoiceRows(array $invoiceRows) {
+    public function setInvoiceRows(array $invoiceRows)
+    {
         $this->invoiceRows = $invoiceRows;
     }
     
     /**
      * @XmlElement comments
      */
-    public function getComment() {
+    public function getComment()
+    {
         return $this->comment;
     }
     
-    public function setComment($comment) {
+    public function setComment($comment)
+    {
         $this->comment = $comment;
     }
     
     /**
      * @XmlElement discount
      */
-    public function getDiscount() {
+    public function getDiscount()
+    {
         return $this->discount;
     }
     
-    public function setDiscount($discount) {
+    public function setDiscount($discount)
+    {
         $this->discount = $discount;
     }
     
     /**
      * @XmlElement billingVar
      */
-    public function getBillingVar() {
+    public function getBillingVar()
+    {
         return $this->billingVar;
     }
     
-    public function setBillingVar($billingVar) {
+    public function setBillingVar($billingVar)
+    {
         $this->billingVar = $billingVar;
     }
     
 }
-
-?>

@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
- namespace Berazy\Bookkeeping\Contract;
+ namespace Berazy\Bookkeeping\Contract; 
 
 /**
  * Class equivalent to the XML element ForeignCustomerType.
@@ -41,7 +41,8 @@
  * @author  Simon Stal <simon@berazy.se>
  * @since   1.0.0
  */
-class ForeignCustomerType {
+class ForeignCustomerType
+{
 
     /**
      * Sweden/Norway/Denmark/Finland - Countries which are supported with "ssn_check".
@@ -62,25 +63,27 @@ class ForeignCustomerType {
     /**
      * @XmlElement country
      */
-    public function getCountry() {
+    public function getCountry()
+    {
         return $this->country;
     }
     
-    public function setCountry($country) {
+    public function setCountry($country)
+    {
         $this->country = $country;
     }
     
     /**
      * @XmlElement countryWithNoSsnCheck
      */
-    public function getCountryWithoutSsnCheck() {
+    public function getCountryWithoutSsnCheck()
+    {
         return $this->countryWithoutSsnCheck;
     }
     
-    public function setCountryWithoutSsnCheck(CountryWithoutSsnCheckType $countryWithoutSsnCheck) {
+    public function setCountryWithoutSsnCheck(CountryWithoutSsnCheckType $countryWithoutSsnCheck)
+    {
         $this->countryWithoutSsnCheck = $countryWithoutSsnCheck;
     }
     
 }
-
-?>

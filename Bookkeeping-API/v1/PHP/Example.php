@@ -120,7 +120,8 @@
      * @param string $method eg. SsnChek, InvoiceStatus etc
      * @param object $request
      */
-    function clientCall($method, $request) {
+    function clientCall($method, $request)
+    {
         global $client;
         try {
             $response = $client->$method($request); 
@@ -147,7 +148,8 @@
      * Autoloading
      * @param string $class
      */
-    function customAutoLoader($class) {
+    function customAutoLoader($class)
+    {
         $file = rtrim(dirname(__FILE__), '/') . '/' . $class . '.php';
         if (file_exists($file)) {
             require $file;
@@ -155,5 +157,3 @@
             return;
         }
     }
-
-?>

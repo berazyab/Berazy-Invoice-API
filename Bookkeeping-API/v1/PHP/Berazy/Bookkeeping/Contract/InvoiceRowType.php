@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
- namespace Berazy\Bookkeeping\Contract;
+ namespace Berazy\Bookkeeping\Contract; 
 
 /**
  * Class equivalent to the XML element InvoiceRowType.
@@ -43,7 +43,8 @@
  *
  * @XmlElement row
  */
-class InvoiceRowType {
+class InvoiceRowType
+{
 
     /**
      * Article Number.
@@ -118,11 +119,13 @@ class InvoiceRowType {
     /**
      * @XmlElement articleNo
      */
-    public function getArticleNumber() {
+    public function getArticleNumber()
+    {
         return $this->articleNumber;
     }
     
-    public function setArticleNumber($articleNumber) {
+    public function setArticleNumber($articleNumber)
+    {
         $this->articleNumber = $articleNumber;
         return $this;
     }
@@ -130,11 +133,13 @@ class InvoiceRowType {
     /**
      * @XmlElement text
      */
-    public function getArticleText() {
+    public function getArticleText()
+    {
         return $this->articleText;
     }
     
-    public function setArticleText($articleText) {
+    public function setArticleText($articleText)
+    {
         $this->articleText = $articleText;
         return $this;
     }
@@ -142,11 +147,13 @@ class InvoiceRowType {
     /**
      * @XmlElement desc
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->description;
     }
     
-    public function setDescription($description) {
+    public function setDescription($description)
+    {
         $this->description = $description;
         return $this;
     }
@@ -154,11 +161,13 @@ class InvoiceRowType {
     /**
      * @XmlElement vat
      */
-    public function getVat() {
+    public function getVat()
+    {
         return $this->vat;
     }
     
-    public function setVat($vat) {
+    public function setVat($vat)
+    {
         $this->vat = $vat;
         return $this;
     }
@@ -166,11 +175,13 @@ class InvoiceRowType {
     /**
      * @XmlElement quantity
      */
-    public function getQuantity() {
+    public function getQuantity()
+    {
         return $this->quantity;
     }
     
-    public function setQuantity($quantity) {
+    public function setQuantity($quantity)
+    {
         $this->quantity = $quantity;
         return $this;
     }
@@ -178,11 +189,13 @@ class InvoiceRowType {
     /**
      * @XmlElement price
      */
-    public function getPrice() {
+    public function getPrice()
+    {
         return $this->price;
     }
     
-    public function setPrice($price) {
+    public function setPrice($price)
+    {
         $this->price = $price;
         return $this;
     }
@@ -190,11 +203,13 @@ class InvoiceRowType {
     /**
      * @XmlElement discount
      */
-    public function getDiscount() {
+    public function getDiscount()
+    {
         return $this->discount;
     }
     
-    public function setDiscount($discount) {
+    public function setDiscount($discount)
+    {
         $this->discount = $discount;
         return $this;
     }
@@ -202,11 +217,13 @@ class InvoiceRowType {
     /**
      * @XmlElement unit
      */
-    public function getUnit() {
+    public function getUnit()
+    {
         return $this->unit;
     }
     
-    public function setUnit($unit) {
+    public function setUnit($unit)
+    {
         $this->unit = $unit;
         return $this;
     }
@@ -214,11 +231,13 @@ class InvoiceRowType {
     /**
      * @XmlElement bookkeepingAccount
      */
-    public function getBookkeepingAccount() {
+    public function getBookkeepingAccount()
+    {
         return $this->bookkeepingAccount;
     }
     
-    public function setBookkeepingAccount($bookkeepingAccount) {
+    public function setBookkeepingAccount($bookkeepingAccount)
+    {
         $this->bookkeepingAccount = $bookkeepingAccount;
         return $this;
     }
@@ -226,11 +245,13 @@ class InvoiceRowType {
     /**
      * @XmlElement profitUnit
      */
-    public function getProfitUnit() {
+    public function getProfitUnit()
+    {
         return $this->profitUnit;
     }
     
-    public function setProfitUnit($profitUnit) {
+    public function setProfitUnit($profitUnit)
+    {
         $this->profitUnit = $profitUnit;
         return $this;
     }
@@ -238,15 +259,15 @@ class InvoiceRowType {
     /**
      * @XmlElement project
      */
-    public function getProject() {
+    public function getProject()
+    {
         return $this->project;
     }
     
-    public function setProject($project) {
+    public function setProject($project)
+    {
         $this->project = $project;
         return $this;
     }
     
 }
-
-?>

@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
- namespace Berazy\Bookkeeping\Contract;
+ namespace Berazy\Bookkeeping\Contract; 
 
 /**
  * Class equivalent to the XML element CareOfType.
@@ -41,7 +41,8 @@
  * @author  Simon Stal <simon@berazy.se>
  * @since   1.0.0
  */
-class CareOfType {
+class CareOfType
+{
 
     /**
      * Company Name / Invoice Receiver Name
@@ -80,58 +81,66 @@ class CareOfType {
     /**
      * @XmlElement co_name
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
     
-    public function setName($name) {
+    public function setName($name)
+    {
         $this->name = $name;
     }
     
     /**
      * @XmlElement co_address
      */
-    public function getAddressLine1() {
+    public function getAddressLine1()
+    {
         return $this->addressLine1;
     }
     
-    public function setAddressLine1($addressLine1) {
+    public function setAddressLine1($addressLine1)
+    {
         $this->addressLine1 = $addressLine1;
     }
     
     /**
      * @XmlElement co_address2
      */
-    public function getAddressLine2() {
+    public function getAddressLine2()
+    {
         return $this->addressLine2;
     }
     
-    public function setAddressLine2($addressLine2) {
+    public function setAddressLine2($addressLine2)
+    {
         $this->addressLine2 = $addressLine2;
     }
     
     /**
      * @XmlElement co_zip
      */
-    public function getPostalCode() {
+    public function getPostalCode()
+    {
         return $this->postalCode;
     }
     
-    public function setPostalCode($postalCode) {
+    public function setPostalCode($postalCode)
+    {
         $this->postalCode = $postalCode;
     }
     
     /**
      * @XmlElement co_city
      */
-    public function getCity() {
+    public function getCity()
+    {
         return $this->city;
     }
     
-    public function setCity($city) {
+    public function setCity($city)
+    {
         $this->city = $city;
     }
     
 }
-
-?>

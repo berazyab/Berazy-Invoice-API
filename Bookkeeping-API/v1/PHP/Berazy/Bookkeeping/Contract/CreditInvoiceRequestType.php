@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
- namespace Berazy\Bookkeeping\Contract;
+ namespace Berazy\Bookkeeping\Contract; 
 
 /**
  * Class equivalent to the XML element CreditInvoiceRequestType.
@@ -41,7 +41,8 @@
  * @author  Simon Stal <simon@berazy.se>
  * @since   1.0.0
  */
-class CreditInvoiceRequestType {
+class CreditInvoiceRequestType
+{
 
     /**
      * If "true": the credit will not be persisted.
@@ -121,124 +122,144 @@ class CreditInvoiceRequestType {
     /**
      * @XmlElement testCredit
      */
-    public function isTestModeEnabled() {
+    public function isTestModeEnabled()
+    {
         return $this->isTestModeEnabled;
     }
     
-    public function setIsTestModeEnabled($isTestModeEnabled) {
+    public function setIsTestModeEnabled($isTestModeEnabled)
+    {
         $this->isTestModeEnabled = $isTestModeEnabled;
     }
     
     /**
      * @XmlElement printSetup
      */
-    public function getPrintSetup() {
+    public function getPrintSetup()
+    {
         return $this->printSetup;
     }
 
-    public function setPrintSetup($printSetup) {
+    public function setPrintSetup($printSetup)
+    {
         $this->printSetup = $printSetup;
     }
     
     /**
      * @XmlElement includingVat
      */
-    public function isVatIncluded() {
+    public function isVatIncluded()
+    {
         return $this->isVatIncluded;
     }
 
-    public function setIsVatIncluded($isVatIncluded) {
+    public function setIsVatIncluded($isVatIncluded)
+    {
         $this->isVatIncluded = $isVatIncluded;
     }
     
     /**
      * @XmlElement ocr
      */
-    public function getOcr() {
+    public function getOcr()
+    {
         return $this->ocr;
     }
 
-    public function setOcr($ocr) {
+    public function setOcr($ocr)
+    {
         $this->ocr = $ocr;
     }
     
     /**
      * @XmlElement orderNo
      */
-    public function getOrderNumber() {
+    public function getOrderNumber()
+    {
         return $this->orderNumber;
     }
 
-    public function setOrderNumber($orderNumber) {
+    public function setOrderNumber($orderNumber)
+    {
         $this->orderNumber = $orderNumber;
     }
     
     /**
      * @XmlElement showInvoiceFooterTextInResponse
      */
-    public function getShowInvoiceFooterTextInResponse() {
+    public function getShowInvoiceFooterTextInResponse()
+    {
         return $this->showInvoiceFooterTextInResponse;
     }
 
-    public function setShowInvoiceFooterTextInResponse($showInvoiceFooterTextInResponse) {
+    public function setShowInvoiceFooterTextInResponse($showInvoiceFooterTextInResponse)
+    {
         $this->showInvoiceFooterTextInResponse = $showInvoiceFooterTextInResponse;
     }
     
     /**
      * @XmlElement comment
      */
-    public function getComment() {
+    public function getComment()
+    {
         return $this->comment;
     }
 
-    public function setComment($comment) {
+    public function setComment($comment)
+    {
         $this->comment = $comment;
     }
     
     /**
      * @XmlElement email
      */
-    public function getEmailAddress() {
+    public function getEmailAddress()
+    {
         return $this->emailAddress;
     }
 
-    public function setEmailAddress($emailAddress) {
+    public function setEmailAddress($emailAddress)
+    {
         $this->emailAddress = $emailAddress;
     }
     
     /**
      * @XmlElement mobile
      */
-    public function getMobilePhoneNumber() {
+    public function getMobilePhoneNumber()
+    {
         return $this->mobilePhoneNumber;
     }
 
-    public function setMobilePhoneNumber($mobilePhoneNumber) {
+    public function setMobilePhoneNumber($mobilePhoneNumber)
+    {
         $this->mobilePhoneNumber = $mobilePhoneNumber;
     }
     
     /**
      * @XmlElement creditAllRows
      */
-    public function getCreditAllInvoiceRows() {
+    public function getCreditAllInvoiceRows()
+    {
         return $this->creditAllInvoiceRows;
     }
 
-    public function setCreditAllInvoiceRows($creditAllInvoiceRows) {
+    public function setCreditAllInvoiceRows($creditAllInvoiceRows)
+    {
         $this->creditAllInvoiceRows = $creditAllInvoiceRows;
     }
     
     /**
      * @XmlElement creditRows
      */
-    public function getCreditRows() {
+    public function getCreditRows()
+    {
         return $this->creditRows;
     }
 
-    public function setCreditRows(array $creditRows) {
+    public function setCreditRows(array $creditRows)
+    {
         $this->creditRows = $creditRows;
     }
     
 }
-
-?>

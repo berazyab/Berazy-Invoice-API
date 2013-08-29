@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
- namespace Berazy\Bookkeeping\Contract;
+ namespace Berazy\Bookkeeping\Contract; 
 
 /**
  * Class equivalent to the XML element CountryWithoutSsnCheckType.
@@ -41,7 +41,8 @@
  * @author  Simon Stal <simon@berazy.se>
  * @since   1.0.0
  */
-class CountryWithoutSsnCheckType {
+class CountryWithoutSsnCheckType
+{
 
     /**
      * An ISO 3166-1 alpha-2 two-letter country code, e.g. SE (Sweden), NO (Norway).
@@ -82,58 +83,66 @@ class CountryWithoutSsnCheckType {
     /**
      * @XmlElement countryCode
      */
-    public function getCountryCode() {
+    public function getCountryCode()
+    {
         return $this->countryCode;
     }
     
-    public function setCountryCode($countryCode) {
+    public function setCountryCode($countryCode)
+    {
         $this->countryCode = $countryCode;
     }
     
     /**
      * @XmlElement addressLine1
      */
-    public function getAddressLine1() {
+    public function getAddressLine1()
+    {
         return $this->addressLine1;
     }
     
-    public function setAddressLine1($addressLine1) {
+    public function setAddressLine1($addressLine1)
+    {
         $this->addressLine1 = $addressLine1;
     }
     
     /**
      * @XmlElement addressLine2
      */
-    public function getAddressLine2() {
+    public function getAddressLine2()
+    {
         return $this->addressLine2;
     }
     
-    public function setAddressLine2($addressLine2) {
+    public function setAddressLine2($addressLine2)
+    {
         $this->addressLine2 = $addressLine2;
     }
     
     /**
      * @XmlElement addressLine3
      */
-    public function getAddressLine3() {
+    public function getAddressLine3()
+    {
         return $this->addressLine3;
     }
     
-    public function setAddressLine3($addressLine3) {
+    public function setAddressLine3($addressLine3)
+    {
         $this->addressLine3 = $addressLine3;
     }
     
     /**
      * @XmlElement addressLine1
      */
-    public function getAddressLine4() {
+    public function getAddressLine4()
+    {
         return $this->addressLine4;
     }
     
-    public function setAddressLine4($addressLine4) {
+    public function setAddressLine4($addressLine4)
+    {
         $this->addressLine4 = $addressLine4;
     }
     
 }
-
-?>

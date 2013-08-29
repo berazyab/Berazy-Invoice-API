@@ -29,7 +29,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace Berazy\Bookkeeping\Exception;
+namespace Berazy\Bookkeeping\Exception; 
 
 /**
  * XSD Exception.
@@ -40,8 +40,6 @@ namespace Berazy\Bookkeeping\Exception;
  * @author  Simon Stal <simon@berazy.se>
  * @since   1.0.0
  */
-class XsdValidationException extends \Exception {
-
+class XsdValidationException extends \Exception
+{
 }
-
-?>

@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
- namespace Berazy\Bookkeeping\Contract;
+ namespace Berazy\Bookkeeping\Contract; 
 
 /**
  * Class equivalent to the XML element CareOfAddressType.
@@ -41,7 +41,8 @@
  * @author  Simon Stal <simon@berazy.se>
  * @since   1.0.0
  */
-class CareOfAddressType {
+class CareOfAddressType
+{
 
     /**
      * The care of address.
@@ -56,14 +57,14 @@ class CareOfAddressType {
     /**
      * @XmlElement careOf
      */
-    public function getCareOf() {
+    public function getCareOf()
+    {
         return $this->careOf;
     }
     
-    public function setCareOf(CareOfType $careOf) {
+    public function setCareOf(CareOfType $careOf)
+    {
         $this->careOf = $careOf;
     }
     
 }
-
-?>
