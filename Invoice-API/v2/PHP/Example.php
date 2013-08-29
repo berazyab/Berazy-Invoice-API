@@ -42,9 +42,9 @@
 /********************************************************************************
  * Initialize InvoiceClient
  *******************************************************************************/
-	
-	// Override any default options by adding an array in the constructor e.g.
-	// new \Berazy\Invoice\InvoiceClient(array('connection_timeout' => 999));
+    
+    // Override any default options by adding an array in the constructor e.g.
+    // new \Berazy\Invoice\InvoiceClient(array('connection_timeout' => 999));
     $client = new \Berazy\Invoice\InvoiceClient();
     $client->setCustomerNumber('CUSTOMER_NUMBER_AS_INT')
            ->setAuthToken('AUTH_TOKEN');
