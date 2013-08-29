@@ -81,7 +81,7 @@
             ->setBookkeepingAccount(3010)
     ));
     $createInvoice->setRequest($createRequest);
-    clientCall('CreateInvoice', $createInvoice);
+    //clientCall('CreateInvoice', $createInvoice);
 
 /********************************************************************************
  * Credit invoice request
