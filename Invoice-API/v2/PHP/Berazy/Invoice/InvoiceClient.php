@@ -62,7 +62,11 @@ class InvoiceClient extends \SoapClient {
         'SsnCheckRequest' => 'Contract\SsnCheckRequest',
         'SsnCheckRequestType' => 'Contract\SsnCheckRequestType',
         'InvoiceStatusRequest' => 'Contract\InvoiceStatusRequest',
-        'InvoiceStatusRequestType' => 'Contract\InvoiceStatusRequestType'
+        'InvoiceStatusRequestType' => 'Contract\InvoiceStatusRequestType',
+        'InvoiceDetailsRequest' => 'Contract\InvoiceDetailsRequest',
+        'InvoiceDetailsRequestType' => 'Contract\InvoiceDetailsRequestType',
+        'ActivateInvoiceRequest' => 'Contract\ActivateInvoiceRequest',
+        'ActivateInvoiceRequestType' => 'Contract\ActivateInvoiceRequestType'
     );
     
     /**

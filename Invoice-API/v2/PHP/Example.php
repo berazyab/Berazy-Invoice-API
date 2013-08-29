@@ -36,20 +36,7 @@
  * 2. Uncomment any operation and set proper values.
  * 3. Run.
  *******************************************************************************/
- 
-/********************************************************************************
- * Custom autoloading
- * Do not use if you are using Composer to autoload dependencies.
- *******************************************************************************/
      
-    function customAutoLoader($class) {
-        $file = rtrim(dirname(__FILE__), '/') . '/' . $class . '.php';
-        if (file_exists($file)) {
-            require $file;
-        } else {
-            return;
-        }
-    }
     spl_autoload_register('customAutoLoader');
 
 /********************************************************************************
@@ -69,18 +56,7 @@
     $ssnCheckRequestType->setSsn('ORG_NO_OR_SSN');
     $ssnCheckRequestType->setCredit_check(0);
     $ssnCheckRequest->setRequest($ssnCheckRequestType);
-    
-    /*
-    try {
-        $response = $client->SsnCheck($ssnCheckRequest);
-        var_dump($client->__getLastRequest());
-        var_dump($response);
-    } catch (\Exception $e) {
-        // Do logging here ...
-        var_dump($e->getMessage());
-        var_dump($client->__getLastRequest());
-    }
-    */
+    //clientCall('SsnCheck', $ssnCheckRequest);
     
 /********************************************************************************
  * InvoiceStatus request
@@ -90,17 +66,65 @@
     $invoiceStatusRequestType = new \Berazy\Invoice\Contract\InvoiceStatusRequestType();
     $invoiceStatusRequestType->setOcr('OCR_NUMBER_AS_INT');
     $invoiceStatusRequest->setRequest($invoiceStatusRequestType);
+    //clientCall('InvoiceStatus', $invoiceStatusRequest);
+
+/********************************************************************************
+ * InvoiceDetails request
+ *******************************************************************************/
+
+    $invoiceDetailsRequest = new \Berazy\Invoice\Contract\InvoiceDetailsRequest();
+    $invoiceDetailsRequestType = new \Berazy\Invoice\Contract\InvoiceDetailsRequestType();
+    $invoiceDetailsRequestType->setOcr('OCR_NUMBER_AS_INT');
+    $invoiceDetailsRequest->setRequest($invoiceDetailsRequestType);
+    //clientCall('InvoiceStatus', $invoiceStatusRequest);
     
-    /*
-    try {
-        $response = $client->InvoiceStatus($invoiceStatusRequest);
-        var_dump($client->__getLastRequest());
-        var_dump($response);
-    } catch (\Exception $e) {
-        // Do logging here ...
-        var_dump($e->getMessage());
-        var_dump($client->__getLastRequest());
+/********************************************************************************
+ * ActivateInvoice request
+ *******************************************************************************/
+
+    $activateInvoiceRequest = new \Berazy\Invoice\Contract\ActivateInvoiceRequest();
+    $activateInvoiceRequestType = new \Berazy\Invoice\Contract\ActivateInvoiceRequestType();
+    $activateInvoiceRequestType->setOcr('OCR_NUMBER_AS_INT');
+    $activateInvoiceRequest->setRequest($invoiceDetailsRequestType);
+    //clientCall('ActivateInvoice', $activateInvoiceRequest);
+    
+/********************************************************************************
+ * Client call
+ *******************************************************************************/
+    
+    /**
+     * The client call
+     * @param string $method eg. SsnChek, InvoiceStatus etc
+     * @param object $request
+     */
+    function clientCall($method, $request) {
+        global $client;
+        try {
+            $response = $client->$method($request);
+            var_dump($client->__getLastRequest());
+            var_dump($response);
+        } catch (\Exception $e) {
+            // Do logging here ...
+            var_dump($e->getMessage());
+            var_dump($client->__getLastRequest());
+        }
     }
-    */
- 
+
+/********************************************************************************
+ * Autoloading. Do NOT use if you are using Composer to autoload dependencies.
+ *******************************************************************************/    
+    
+    /**
+     * Autoloading
+     * @param string $class
+     */
+    function customAutoLoader($class) {
+        $file = rtrim(dirname(__FILE__), '/') . '/' . $class . '.php';
+        if (file_exists($file)) {
+            require $file;
+        } else {
+            return;
+        }
+    }
+    
 ?>
