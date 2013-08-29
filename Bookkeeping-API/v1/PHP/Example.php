@@ -81,7 +81,7 @@
             ->setBookkeepingAccount(3010)
     ));
     $createInvoice->setRequest($createRequest);
-	clientCall('CreateInvoice', $createInvoice);
+    clientCall('CreateInvoice', $createInvoice);
 
 /********************************************************************************
  * Credit invoice request
@@ -109,7 +109,7 @@
             ->setPrice(20000)
     ));
     $creditInvoice->setRequest($creditRequest);
-	//clientCall('CreditInvoice', $creditInvoice);
+    //clientCall('CreditInvoice', $creditInvoice);
 
 /********************************************************************************
  * Client call
@@ -122,23 +122,23 @@
      */
     function clientCall($method, $request) {
         global $client;
-		try {
-			$response = $client->$method($request); 
-			var_dump($response);
-			var_dump($client->getLastRequest());
-			// if ($response->response->statusCode == 1) then SUCCESS
-			// if ($response->response->statusCode == 0) then FAILURE, check error code and description.
-			// $response->response->errorCode
-			// $response->response->description
-		} catch (\Berazy\Bookkeeping\Exception\XsdValidationException $e) {
-			// Do logging here ...
-			echo 'Looks like we got an error: ' . $e->getMessage();
-		} catch (\Exception $e) {
-			// Do logging here ...
-			echo 'Looks like we got an error: ' . $e->getMessage();
-		}
+        try {
+            $response = $client->$method($request); 
+            var_dump($response);
+            var_dump($client->getLastRequest());
+            // if ($response->response->statusCode == 1) then SUCCESS
+            // if ($response->response->statusCode == 0) then FAILURE, check error code and description.
+            // $response->response->errorCode
+            // $response->response->description
+        } catch (\Berazy\Bookkeeping\Exception\XsdValidationException $e) {
+            // Do logging here ...
+            echo 'Looks like we got an error: ' . $e->getMessage();
+        } catch (\Exception $e) {
+            // Do logging here ...
+            echo 'Looks like we got an error: ' . $e->getMessage();
+        }
     }
-	
+    
 /********************************************************************************
  * Autoloading. Do NOT use if you are using Composer to autoload dependencies.
  *******************************************************************************/    
