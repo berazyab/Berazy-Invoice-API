@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-namespace Berazy\Invoice\Contract;
+namespace Berazy\Invoice\Contract; 
 
 /**
  * Class equivalent to XSD element InvoiceDetailsRequestType.
@@ -40,7 +40,8 @@ namespace Berazy\Invoice\Contract;
  * @author  Simon Stal <simon@berazy.se>
  * @since   2.0.0
  */
-class InvoiceDetailsRequestType extends AuthenticationType {
+class InvoiceDetailsRequestType extends AuthenticationType
+{
 
     /**
      * The OCR number received in the response when the 
@@ -66,7 +67,8 @@ class InvoiceDetailsRequestType extends AuthenticationType {
      * Returns the ocr.
      * @returns int
      */
-    public function getOcr() {
+    public function getOcr()
+    {
         return $this->ocr;
     }
     
@@ -74,7 +76,8 @@ class InvoiceDetailsRequestType extends AuthenticationType {
      * Sets the ocr.
      * @param int $ocr
      */
-    public function setOcr($ocr) {
+    public function setOcr($ocr)
+    {
         $this->ocr = $ocr;
     }
     
@@ -82,7 +85,8 @@ class InvoiceDetailsRequestType extends AuthenticationType {
      * Returns the order number.
      * @returns string
      */
-    public function getOrder_no() {
+    public function getOrder_no()
+    {
         return $order_no;
     }
     
@@ -90,10 +94,9 @@ class InvoiceDetailsRequestType extends AuthenticationType {
      * Sets the order number.
      * @param string $order_no
      */
-    public function setOrder_no($order_no) {
+    public function setOrder_no($order_no)
+    {
         $this->order_no = $order_no;
     }
     
 }
-
-?>

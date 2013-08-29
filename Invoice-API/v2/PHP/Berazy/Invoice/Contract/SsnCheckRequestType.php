@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-namespace Berazy\Invoice\Contract;
+namespace Berazy\Invoice\Contract; 
 
 /**
  * Class equivalent to XSD element SsnCheckRequestType.
@@ -40,7 +40,8 @@ namespace Berazy\Invoice\Contract;
  * @author  Simon Stal <simon@berazy.se>
  * @since   2.0.0
  */
-class SsnCheckRequestType extends AuthenticationType {
+class SsnCheckRequestType extends AuthenticationType 
+{
 
     /**
      * Whether or not to perform a credit check.
@@ -88,54 +89,64 @@ class SsnCheckRequestType extends AuthenticationType {
      * Getters and setters
      *******************************************************************************/
     
-    public function getCredit_check() {
+    public function getCredit_check()
+    {
         return $this->credit_check();
     }
     
-    public function setCredit_check($credit_check){
+    public function setCredit_check($credit_check)
+    {
         $this->credit_check = $credit_check;
     }
     
-    public function getGet_company() {
+    public function getGet_company()
+    {
         return $this->get_company();
     }
     
-    public function setGet_company($get_company){
+    public function setGet_company($get_company)
+    {
         $this->get_company = $get_company;
     }
     
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email();
     }
     
-    public function setEmail($email){
+    public function setEmail($email)
+    {
         $this->email = $email;
     }
     
-    public function getSsn() {
+    public function getSsn()
+    {
         return $this->ssn();
     }
     
-    public function setSsn($ssn){
+    public function setSsn($ssn)
+    {
         $this->ssn = $ssn;
     }
     
-    public function getCountry() {
+    public function getCountry()
+    {
         return $this->country();
     }
     
-    public function setCountry($country){
+    public function setCountry($country)
+    {
         $this->country = $country;
     }
     
-    public function getTest() {
+    public function getTest()
+    {
         return $this->test();
     }
     
-    public function setTest($test){
+    public function setTest($test)
+    {
         $this->test = $test;
     }
     
 }
-
-?>

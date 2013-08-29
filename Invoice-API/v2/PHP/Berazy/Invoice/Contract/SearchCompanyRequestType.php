@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-namespace Berazy\Invoice\Contract;
+namespace Berazy\Invoice\Contract; 
 
 /**
  * Class equivalent to XSD element SearchCompanyRequestType.
@@ -40,7 +40,8 @@ namespace Berazy\Invoice\Contract;
  * @author  Simon Stal <simon@berazy.se>
  * @since   2.0.0
  */
-class SearchCompanyRequestType extends AuthenticationType {
+class SearchCompanyRequestType extends AuthenticationType
+{
 
     /**
      * A company name such as “Volvo”
@@ -76,7 +77,8 @@ class SearchCompanyRequestType extends AuthenticationType {
      * Returns the company name.
      * @returns string
      */
-    public function getCompany_name() {
+    public function getCompany_name()
+    {
         return $company_name;
     }
     
@@ -84,7 +86,8 @@ class SearchCompanyRequestType extends AuthenticationType {
      * Sets the company name.
      * @param string $company_name
      */
-    public function setCompany_name($company_name) {
+    public function setCompany_name($company_name)
+    {
         $this->company_name = $company_name;
     }
     
@@ -100,7 +103,8 @@ class SearchCompanyRequestType extends AuthenticationType {
      * Sets whether or not to use phonetic search.
      * @param bool $phonetic_search
      */
-    public function setPhonetic_search($phonetic_search) {
+    public function setPhonetic_search($phonetic_search)
+    {
         $this->phonetic_search = $phonetic_search;
     }
     
@@ -108,7 +112,8 @@ class SearchCompanyRequestType extends AuthenticationType {
      * Returns the country.
      * @returns string
      */
-    public function getCountry() {
+    public function getCountry()
+    {
         return $this->country;
     }
     
@@ -116,7 +121,8 @@ class SearchCompanyRequestType extends AuthenticationType {
      * Sets the country.
      * @param string $country
      */
-    public function setCountry($country) {
+    public function setCountry($country)
+    {
         $this->country = $country;
     }
     
@@ -124,7 +130,8 @@ class SearchCompanyRequestType extends AuthenticationType {
      * Returns the maximum number of hits.
      * @returns int
      */
-    public function getNumber_hits() {
+    public function getNumber_hits()
+    {
         return $this->number_hits;
     }
     
@@ -132,10 +139,9 @@ class SearchCompanyRequestType extends AuthenticationType {
      * Sets the maximum number of hits.
      * @param bool $number_hits
      */
-    public function setNumber_hits($number_hits) {
+    public function setNumber_hits($number_hits)
+    {
         $this->number_hits = $number_hits;
     }
     
 }
-
-?>

@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-namespace Berazy\Invoice\Contract;
+namespace Berazy\Invoice\Contract; 
 
 /**
  * SOAP request type base class.
@@ -40,7 +40,8 @@ namespace Berazy\Invoice\Contract;
  * @author  Simon Stal <simon@berazy.se>
  * @since   2.0.0
  */
-class AuthenticationType {
+class AuthenticationType
+{
 
     /**
      * The key is used to authenticate the request.
@@ -62,7 +63,8 @@ class AuthenticationType {
      * Returns the key.
      * @returns string
      */
-    public function getKey() {
+    public function getKey()
+    {
         return $this->key;
     }
     
@@ -70,7 +72,8 @@ class AuthenticationType {
      * Sets the key.
      * @param string $key
      */
-    public function setKey($key) {
+    public function setKey($key)
+    {
         $this->key = $key;
     }
     
@@ -78,7 +81,8 @@ class AuthenticationType {
      * Returns the customer number.
      * @returns int
      */
-    public function getCustomerNo() {
+    public function getCustomerNo()
+    {
         return $customerno;
     }
     
@@ -86,10 +90,9 @@ class AuthenticationType {
      * Sets the customer number.
      * @param int $customerno
      */
-    public function setCustomerNo($customerno) {
+    public function setCustomerNo($customerno)
+    {
         $this->customerno = $customerno;
     }
     
 }
-
-?>

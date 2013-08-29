@@ -40,7 +40,8 @@ namespace Berazy\Invoice;
  * @author  Simon Stal <simon@berazy.se>
  * @since   2.0.0
  */
-class InvoiceClient extends \SoapClient {
+class InvoiceClient extends \SoapClient 
+{
     
     /**
      * The customer number.
@@ -80,17 +81,20 @@ class InvoiceClient extends \SoapClient {
      * @param array $options SoapClient options
      * @see http://www.php.net/manual/en/soapclient.soapclient.php
      */
-    public function __construct($options = array()) { 
-        $default = array_merge(array( 
-            'trace' => TRUE, 
-            'encoding' => 'utf-8', 
-            'connection_timeout' => 0, 
-            'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
-            'cache_wsdl' => WSDL_CACHE_MEMORY,
-            'compression' => 0,
-            'profile_agent' => 'PHP-SOAP/'. phpversion() . ', gzip',
-            'classmap' => $this->classMap
-        ), $options);
+    public function __construct($options = array()) 
+    { 
+        $default = array_merge(
+            array( 
+                'trace' => TRUE, 
+                'encoding' => 'utf-8', 
+                'connection_timeout' => 0, 
+                'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
+                'cache_wsdl' => WSDL_CACHE_MEMORY,
+                'compression' => 0,
+                'profile_agent' => 'PHP-SOAP/'. phpversion() . ', gzip',
+                'classmap' => $this->classMap
+            ), $options
+        );
         parent::__construct('https://www.berazy.se/soap/invoice_v2.0?wsdl', $default);
     }
     
@@ -101,7 +105,8 @@ class InvoiceClient extends \SoapClient {
      * @param  array  $args
      * @return mixed
      */
-    public function __call($function, $args) {
+    public function __call($function, $args) 
+    {
         $soapRequest = $args[0];
         if (is_object($soapRequest) && ($soapRequest instanceof Contract\SoapRequest)) {
             if ($soapRequest->getRequest() instanceof Contract\AuthenticationType) {
@@ -120,7 +125,8 @@ class InvoiceClient extends \SoapClient {
      * Returns the customer number.
      * @return int
      */
-    public function getCustomerNumber() {
+    public function getCustomerNumber() 
+    {
         return $this->customerNumber;
     }
     
@@ -128,7 +134,8 @@ class InvoiceClient extends \SoapClient {
      * Sets the customer number.
      * @return this
      */
-    public function setCustomerNumber($customerNumber) {
+    public function setCustomerNumber($customerNumber) 
+    {
         $this->customerNumber = $customerNumber;
         return $this;
     }
@@ -137,7 +144,8 @@ class InvoiceClient extends \SoapClient {
      * Returns the authorization token.
      * @return string
      */
-    public function getAuthToken() {
+    public function getAuthToken() 
+    {
         return $this->authToken;
     }
     
@@ -145,11 +153,10 @@ class InvoiceClient extends \SoapClient {
      * Sets the authorization token.
      * @return this
      */
-    public function setAuthToken($authToken) {
+    public function setAuthToken($authToken) 
+    {
         $this->authToken = $authToken;
         return $this;
     }
 
 }
-
-?>

@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-namespace Berazy\Invoice\Contract;
+namespace Berazy\Invoice\Contract; 
 
 /**
  * SOAP request base class.
@@ -40,7 +40,8 @@ namespace Berazy\Invoice\Contract;
  * @author  Simon Stal <simon@berazy.se>
  * @since   2.0.0
  */
-class SoapRequest {
+class SoapRequest
+{
 
     /**
      * A request object. Must be set public
@@ -57,7 +58,8 @@ class SoapRequest {
      * Returns the request.
      * @returns object
      */
-    public function getRequest() {
+    public function getRequest()
+    {
         return $this->request;
     }
     
@@ -65,10 +67,9 @@ class SoapRequest {
      * Sets the request.
      * @param object $request
      */
-    public function setRequest($request) {
+    public function setRequest($request)
+    {
         $this->request = $request;
     }
     
 }
-
-?>

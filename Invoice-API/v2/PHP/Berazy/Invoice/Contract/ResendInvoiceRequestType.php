@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-namespace Berazy\Invoice\Contract;
+namespace Berazy\Invoice\Contract; 
 
 /**
  * Class equivalent to XSD element ResendInvoiceRequestType.
@@ -40,7 +40,8 @@ namespace Berazy\Invoice\Contract;
  * @author  Simon Stal <simon@berazy.se>
  * @since   2.0.0
  */
-class ResendInvoiceRequestType extends AuthenticationType {
+class ResendInvoiceRequestType extends AuthenticationType
+{
 
     /**
      * The order number / transaction number sent to 
@@ -166,7 +167,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the order number.
      * @returns string
      */
-    public function getOrder_no() {
+    public function getOrder_no()
+    {
         return $order_no;
     }
     
@@ -174,7 +176,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the order number.
      * @param string $order_no
      */
-    public function setOrder_no($order_no) {
+    public function setOrder_no($order_no)
+    {
         $this->order_no = $order_no;
     }
     
@@ -182,7 +185,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the ocr.
      * @returns int
      */
-    public function getOcr() {
+    public function getOcr()
+    {
         return $this->ocr;
     }
     
@@ -190,7 +194,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the ocr.
      * @param int $ocr
      */
-    public function setOcr($ocr) {
+    public function setOcr($ocr)
+    {
         $this->ocr = $ocr;
     }
     
@@ -198,7 +203,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the invoice state.
      * @returns int
      */
-    public function getInvoice_state() {
+    public function getInvoice_state()
+    {
         return $this->invoice_state;
     }
     
@@ -206,7 +212,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the invoice state.
      * @param int $invoice_state
      */
-    public function setInvoice_state($invoice_state) {
+    public function setInvoice_state($invoice_state)
+    {
         $this->invoice_state = $invoice_state;
     }
     
@@ -214,7 +221,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the print setup.
      * @returns int
      */
-    public function getPrint_setup() {
+    public function getPrint_setup()
+    {
         return $this->print_setup;
     }
     
@@ -222,7 +230,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the print setup.
      * @param int $print_setup
      */
-    public function setPrint_setup($print_setup) {
+    public function setPrint_setup($print_setup)
+    {
         $this->print_setup = $print_setup;
     }
     
@@ -230,7 +239,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the E-mail address.
      * @returns string
      */
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
     
@@ -238,7 +248,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the E-mail address.
      * @param string $email
      */
-    public function setEmail($email) {
+    public function setEmail($email)
+    {
         $this->email = $email;
     }
     
@@ -246,7 +257,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the mobile phone number.
      * @returns string
      */
-    public function getMobile() {
+    public function getMobile()
+    {
         return $this->mobile;
     }
     
@@ -254,7 +266,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the mobile phone number.
      * @param string $mobile
      */
-    public function setMobile($mobile) {
+    public function setMobile($mobile)
+    {
         $this->mobile = $mobile;
     }
     
@@ -262,7 +275,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns whether or not to clear all c/o address lines.
      * @returns bool
      */
-    public function getClear_co_address() {
+    public function getClear_co_address()
+    {
         return $this->clear_co_address;
     }
     
@@ -270,7 +284,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets whether or not to clear all c/o address lines.
      * @param bool $clear_co_address
      */
-    public function setClear_co_address($clear_co_address) {
+    public function setClear_co_address($clear_co_address)
+    {
         $this->clear_co_address = $clear_co_address;
     }
     
@@ -278,7 +293,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the c/o E-mail address.
      * @returns string
      */
-    public function getCo_email() {
+    public function getCo_email()
+    {
         return $this->co_email;
     }
     
@@ -286,7 +302,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the c/o E-mail address.
      * @param string $co_email
      */
-    public function setCo_email($co_email) {
+    public function setCo_email($co_email)
+    {
         $this->co_email = $co_email;
     }
     
@@ -294,7 +311,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the c/o address line 1.
      * @returns string
      */
-    public function getCo_address1() {
+    public function getCo_address1()
+    {
         return $this->co_address1;
     }
     
@@ -302,7 +320,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the c/o address line 1.
      * @param string $co_address1
      */
-    public function setCo_address1($co_address1) {
+    public function setCo_address1($co_address1)
+    {
         $this->co_address1 = $co_address1;
     }
     
@@ -310,7 +329,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the c/o address line 2.
      * @returns string
      */
-    public function getCo_address2() {
+    public function getCo_address2()
+    {
         return $this->co_address2;
     }
     
@@ -318,7 +338,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the c/o address line 2.
      * @param string $co_address2
      */
-    public function setCo_address2($co_address2) {
+    public function setCo_address2($co_address2)
+    {
         $this->co_address2 = $co_address2;
     }
     
@@ -326,7 +347,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the c/o address line 3.
      * @returns string
      */
-    public function getCo_address3() {
+    public function getCo_address3()
+    {
         return $this->co_address3;
     }
     
@@ -334,7 +356,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the c/o address line 3.
      * @param string $co_address3
      */
-    public function setCo_address3($co_address3) {
+    public function setCo_address3($co_address3)
+    {
         $this->co_address3 = $co_address3;
     }
     
@@ -342,7 +365,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the c/o address line 4.
      * @returns string
      */
-    public function getCo_address4() {
+    public function getCo_address4()
+    {
         return $this->co_address4;
     }
     
@@ -350,7 +374,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the c/o address line 4.
      * @param string $co_address4
      */
-    public function setCo_address4($co_address4) {
+    public function setCo_address4($co_address4)
+    {
         $this->co_address4 = $co_address4;
     }
     
@@ -358,7 +383,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the c/o address line 5.
      * @returns string
      */
-    public function getCo_address5() {
+    public function getCo_address5()
+    {
         return $this->co_address5;
     }
     
@@ -366,7 +392,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the c/o address line 5.
      * @param string $co_address5
      */
-    public function setCo_address5($co_address5) {
+    public function setCo_address5($co_address5)
+    {
         $this->co_address5 = $co_address5;
     }
     
@@ -374,7 +401,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the invoice reference.
      * @returns string
      */
-    public function getInvoice_reference() {
+    public function getInvoice_reference()
+    {
         return $this->invoice_reference;
     }
     
@@ -382,7 +410,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the invoice reference.
      * @param string $invoice_reference
      */
-    public function setInvoice_reference($invoice_reference) {
+    public function setInvoice_reference($invoice_reference)
+    {
         $this->invoice_reference = $invoice_reference;
     }
     
@@ -390,7 +419,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns the invoice order number.
      * @returns string
      */
-    public function getInvoice_order_no() {
+    public function getInvoice_order_no()
+    {
         return $this->invoice_order_no;
     }
     
@@ -398,7 +428,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets the invoice order number.
      * @param string $invoice_order_no
      */
-    public function setInvoice_order_no($invoice_order_no) {
+    public function setInvoice_order_no($invoice_order_no)
+    {
         $this->invoice_order_no = $invoice_order_no;
     }
     
@@ -406,7 +437,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns our reference.
      * @returns string
      */
-    public function getOur_reference() {
+    public function getOur_reference()
+    {
         return $this->our_reference;
     }
     
@@ -414,7 +446,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets our reference.
      * @param string $our_reference
      */
-    public function setOur_reference($our_reference) {
+    public function setOur_reference($our_reference)
+    {
         $this->our_reference = $our_reference;
     }
     
@@ -422,7 +455,8 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Returns your reference.
      * @returns string
      */
-    public function getYour_reference() {
+    public function getYour_reference()
+    {
         return $this->your_reference;
     }
     
@@ -430,10 +464,9 @@ class ResendInvoiceRequestType extends AuthenticationType {
      * Sets your reference.
      * @param string $your_reference
      */
-    public function setYour_reference($your_reference) {
+    public function setYour_reference($your_reference)
+    {
         $this->your_reference = $your_reference;
     }
     
 }
-
-?>

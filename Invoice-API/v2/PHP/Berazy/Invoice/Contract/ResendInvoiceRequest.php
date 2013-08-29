@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-namespace Berazy\Invoice\Contract;
+namespace Berazy\Invoice\Contract; 
 
 /**
  * Class equivalent to XSD element ResendInvoiceRequest.
@@ -40,6 +40,6 @@ namespace Berazy\Invoice\Contract;
  * @author  Simon Stal <simon@berazy.se>
  * @since   2.0.0
  */
-class ResendInvoiceRequest extends SoapRequest { }
-
-?>
+class ResendInvoiceRequest extends SoapRequest
+{
+}

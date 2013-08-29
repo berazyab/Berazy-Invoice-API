@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-namespace Berazy\Invoice\Contract;
+namespace Berazy\Invoice\Contract; 
 
 /**
  * Class equivalent to XSD element PauseInvoiceRequestType.
@@ -40,7 +40,8 @@ namespace Berazy\Invoice\Contract;
  * @author  Simon Stal <simon@berazy.se>
  * @since   2.0.0
  */
-class PauseInvoiceRequestType extends AuthenticationType {
+class PauseInvoiceRequestType extends AuthenticationType
+{
 
     /**
      * The order number / transaction number sent to 
@@ -102,7 +103,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Returns the order number.
      * @returns string
      */
-    public function getOrder_no() {
+    public function getOrder_no()
+    {
         return $order_no;
     }
     
@@ -110,7 +112,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Sets the order number.
      * @param string $order_no
      */
-    public function setOrder_no($order_no) {
+    public function setOrder_no($order_no)
+    {
         $this->order_no = $order_no;
     }
     
@@ -118,7 +121,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Returns the ocr.
      * @returns int
      */
-    public function getOcr() {
+    public function getOcr()
+    {
         return $this->ocr;
     }
     
@@ -126,7 +130,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Sets the ocr.
      * @param int $ocr
      */
-    public function setOcr($ocr) {
+    public function setOcr($ocr)
+    {
         $this->ocr = $ocr;
     }
     
@@ -134,7 +139,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Returns whether or not to pause the invoice.
      * @returns bool
      */
-    public function getPause() {
+    public function getPause()
+    {
         return $this->pause;
     }
     
@@ -142,7 +148,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Sets whether or not to pause the invoice.
      * @param bool $pause
      */
-    public function setPause($pause) {
+    public function setPause($pause)
+    {
         $this->pause = $pause;
     }
     
@@ -150,7 +157,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Returns whether or not to skip reminders.
      * @returns bool
      */
-    public function getSkip_reminder() {
+    public function getSkip_reminder()
+    {
         return $this->skip_reminder;
     }
     
@@ -158,7 +166,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Sets whether or not to skip reminders.
      * @param bool $skip_reminder
      */
-    public function setSkip_reminder($skip_reminder) {
+    public function setSkip_reminder($skip_reminder)
+    {
         $this->skip_reminder = $skip_reminder;
     }
     
@@ -166,7 +175,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Returns whether or not to debt collection.
      * @returns bool
      */
-    public function getSkip_debt_collection() {
+    public function getSkip_debt_collection()
+    {
         return $this->skip_debt_collection;
     }
     
@@ -174,7 +184,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Sets whether or not to debt collection.
      * @param bool $skip_debt_collection
      */
-    public function setSkip_debt_collection($skip_debt_collection) {
+    public function setSkip_debt_collection($skip_debt_collection)
+    {
         $this->skip_debt_collection = $skip_debt_collection;
     }
     
@@ -190,7 +201,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Sets the invoice due date.
      * @param string $invoice_due_date
      */
-    public function setInvoice_due_date($invoice_due_date) {
+    public function setInvoice_due_date($invoice_due_date)
+    {
         $this->invoice_due_date = $invoice_due_date;
     }
     
@@ -198,7 +210,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Returns the reminder due date.
      * @returns string
      */
-    public function getReminder_due_date() {
+    public function getReminder_due_date()
+    {
         return $this->reminder_due_date;
     }
     
@@ -206,7 +219,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Sets the reminder due date.
      * @param string $reminder_due_date
      */
-    public function setReminder_due_date($reminder_due_date) {
+    public function setReminder_due_date($reminder_due_date)
+    {
         $this->reminder_due_date = $reminder_due_date;
     }
     
@@ -214,7 +228,8 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Returns the debt collection due date.
      * @returns string
      */
-    public function getDebt_collection_due_date() {
+    public function getDebt_collection_due_date()
+    {
         return $this->debt_collection_due_date;
     }
     
@@ -222,10 +237,9 @@ class PauseInvoiceRequestType extends AuthenticationType {
      * Sets the the debt collection due date.
      * @param string $debt_collection_due_date
      */
-    public function setDebt_collection_due_date($debt_collection_due_date) {
+    public function setDebt_collection_due_date($debt_collection_due_date)
+    {
         $this->debt_collection_due_date = $debt_collection_due_date;
     }
     
 }
-
-?>

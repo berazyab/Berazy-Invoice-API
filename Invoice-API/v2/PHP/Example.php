@@ -110,7 +110,7 @@
     $pauseInvoiceRequest = new \Berazy\Invoice\Contract\PauseInvoiceRequest();
     $pauseInvoiceRequestType = new \Berazy\Invoice\Contract\PauseInvoiceRequestType();
     $pauseInvoiceRequestType->setOcr('OCR_NUMBER_AS_INT');
-    $pauseInvoiceRequestType->setPause(TRUE);
+    $pauseInvoiceRequestType->setPause(true);
     $pauseInvoiceRequest->setRequest($pauseInvoiceRequestType);
     //clientCall('PauseInvoice', $pauseInvoiceRequest);
    
@@ -121,7 +121,7 @@
     $searchCompanyRequest = new \Berazy\Invoice\Contract\SearchCompanyRequest();
     $searchCompanyRequestType = new \Berazy\Invoice\Contract\SearchCompanyRequestType();
     $searchCompanyRequestType->setCompany_name('Berazy');
-    $searchCompanyRequestType->setPhonetic_search(TRUE);
+    $searchCompanyRequestType->setPhonetic_search(true);
     $searchCompanyRequestType->setNumber_hits(10);
     $searchCompanyRequest->setRequest($searchCompanyRequestType);
     //clientCall('SearchCompany', $searchCompanyRequest);
@@ -135,7 +135,8 @@
      * @param string $method eg. SsnCheck, InvoiceStatus etc
      * @param object $request
      */
-    function clientCall($method, $request) {
+    function clientCall($method, $request) 
+    {
         global $client;
         try {
             $response = $client->$method($request);
@@ -156,7 +157,8 @@
      * Autoloading
      * @param string $class
      */
-    function customAutoLoader($class) {
+    function customAutoLoader($class) 
+    {
         $file = rtrim(dirname(__FILE__), '/') . '/' . $class . '.php';
         if (file_exists($file)) {
             require $file;
@@ -165,4 +167,3 @@
         }
     }
     
-?>

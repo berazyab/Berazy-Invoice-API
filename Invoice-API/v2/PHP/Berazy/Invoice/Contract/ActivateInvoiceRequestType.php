@@ -30,7 +30,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
  
-namespace Berazy\Invoice\Contract;
+namespace Berazy\Invoice\Contract; 
 
 /**
  * Class equivalent to XSD element ActivateInvoiceRequestType.
@@ -40,7 +40,8 @@ namespace Berazy\Invoice\Contract;
  * @author  Simon Stal <simon@berazy.se>
  * @since   2.0.0
  */
-class ActivateInvoiceRequestType extends AuthenticationType {
+class ActivateInvoiceRequestType extends AuthenticationType
+{
 
     /**
      * The OCR number received in the response when the 
@@ -82,7 +83,8 @@ class ActivateInvoiceRequestType extends AuthenticationType {
      * Returns the ocr.
      * @returns int
      */
-    public function getOcr() {
+    public function getOcr()
+    {
         return $this->ocr;
     }
     
@@ -90,7 +92,8 @@ class ActivateInvoiceRequestType extends AuthenticationType {
      * Sets the ocr.
      * @param int $ocr
      */
-    public function setOcr($ocr) {
+    public function setOcr($ocr)
+    {
         $this->ocr = $ocr;
     }
     
@@ -98,7 +101,8 @@ class ActivateInvoiceRequestType extends AuthenticationType {
      * Returns the order number.
      * @returns string
      */
-    public function getOrder_no() {
+    public function getOrder_no()
+    {
         return $order_no;
     }
     
@@ -106,7 +110,8 @@ class ActivateInvoiceRequestType extends AuthenticationType {
      * Sets the order number.
      * @param string $order_no
      */
-    public function setOrder_no($order_no) {
+    public function setOrder_no($order_no)
+    {
         $this->order_no = $order_no;
     }
     
@@ -114,7 +119,8 @@ class ActivateInvoiceRequestType extends AuthenticationType {
      * Returns the invoice date to send.
      * @returns int
      */
-    public function getSend_invoice_date() {
+    public function getSend_invoice_date()
+    {
         return $send_invoice_date;
     }
     
@@ -122,7 +128,8 @@ class ActivateInvoiceRequestType extends AuthenticationType {
      * Sets the invoice date to send.
      * @param int $send_invoice_date
      */
-    public function setSend_invoice_date($send_invoice_date) {
+    public function setSend_invoice_date($send_invoice_date)
+    
         $this->send_invoice_date = $send_invoice_date;
     }
     
@@ -130,7 +137,8 @@ class ActivateInvoiceRequestType extends AuthenticationType {
      * Returns the invoice due date.
      * @returns int
      */
-    public function getInvoice_due_date() {
+    public function getInvoice_due_date()
+    {
         return $invoice_due_date;
     }
     
@@ -138,10 +146,9 @@ class ActivateInvoiceRequestType extends AuthenticationType {
      * Sets the invoice due date.
      * @param int $invoice_due_date
      */
-    public function setInvoice_due_date($invoice_due_date) {
+    public function setInvoice_due_date($invoice_due_date)
+    {
         $this->invoice_due_date = $invoice_due_date;
     }
     
 }
-
-?>
