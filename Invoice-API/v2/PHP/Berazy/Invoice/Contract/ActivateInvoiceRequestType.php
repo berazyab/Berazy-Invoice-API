@@ -129,7 +129,7 @@ class ActivateInvoiceRequestType extends AuthenticationType
      * @param int $send_invoice_date
      */
     public function setSend_invoice_date($send_invoice_date)
-    
+    {
         $this->send_invoice_date = $send_invoice_date;
     }
     
