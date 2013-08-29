@@ -251,12 +251,12 @@ class BookkeepingClient
         $schemaLocation = explode(' ', $attr["schemaLocation"]);
         $doc = new \DomDocument;
         $doc->loadXML($data);
-        libxml_use_internal_errors(TRUE);
+        libxml_use_internal_errors(true);
         if (!$doc->schemaValidate($schemaLocation[1])) {
-            return TRUE;
+            return true;
         } else {
             $errors = libxml_get_errors();
-            throw new \Berazy\Bookkeeping\Exception\XsdValidationException("XSD validation failed!\n\n" . var_export(error_get_last(), TRUE));
+            throw new \Berazy\Bookkeeping\Exception\XsdValidationException("XSD validation failed!\n\n" . var_export(error_get_last(), true));
         }
     }
     
