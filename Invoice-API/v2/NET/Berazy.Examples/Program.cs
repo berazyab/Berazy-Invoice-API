@@ -12,32 +12,19 @@ namespace Berazy.Examples {
     internal class Program {
 
         /// <summary>
-        /// A test organizational number or unique identifier number for an individual. 
+        /// The Authentication Token/Key used in all examples, see app.config.
         /// </summary>
-        const string TestOrganizationNumber = null;
-
-        /// <summary>
-        /// An test OCR invoice number.
-        /// </summary>
-        const int TestOcrNumber = -1;
-
-        /// <summary>
-        /// A test company name.
-        /// </summary>
-        const string TestCompanyName = null;
-
-        /// <summary>
-        /// The Authorization Token used in all examples, see app.config.
-        /// </summary>
-        /// <remarks>Mandatory for all requests.</remarks>
         static string AuthToken { get; set; }
 
         /// <summary>
         /// The Customer number used in all examples, see app.config.
         /// </summary>
-        /// <remarks>Mandatory for all requests.</remarks>
         static int CustomerNumber { get; set; }
 
+        /// <summary>
+        /// Main method.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args) {
             try {
                 VerifySetup();
@@ -92,43 +79,53 @@ namespace Berazy.Examples {
         }
 
         static SsnCheckResponseType SsnCheck() {
+            string orgOrSsn = null;
+            ThrowIfNull(orgOrSsn, "Organizational number or social security number must be set!");
             return InvoiceServiceAgent.Instance().SsnCheck(new SsnCheckRequestType() {
                 key = AuthToken,
                 customerno = CustomerNumber,
-                ssn = TestOrganizationNumber,
+                ssn = orgOrSsn,
                 credit_check = 0
             });
         }
 
         static InvoiceStatusResponseType InvoiceStatus() {
+            int? ocrNumber = null;
+            ThrowIfNull(ocrNumber, "OCR number must be set!");
             return InvoiceServiceAgent.Instance().InvoiceStatus(new InvoiceStatusRequestType() {
                 key = AuthToken,
                 customerno = CustomerNumber,
-                ocr = TestOcrNumber
+                ocr = ocrNumber.Value
             });
         }
 
         static InvoiceDetailsResponseType InvoiceDetails() {
+            int? ocrNumber = null;
+            ThrowIfNull(ocrNumber, "OCR number must be set!");
             return InvoiceServiceAgent.Instance().InvoiceDetails(new InvoiceDetailsRequestType() {
                 key = AuthToken,
                 customerno = CustomerNumber,
-                ocr = TestOcrNumber
+                ocr = ocrNumber.Value
             });
         }
 
         static ActivateInvoiceResponseType ActivateInvoice() {
+            int? ocrNumber = null;
+            ThrowIfNull(ocrNumber, "OCR number must be set!");
             return InvoiceServiceAgent.Instance().ActivateInvoice(new ActivateInvoiceRequestType() {
                 key = AuthToken,
                 customerno = CustomerNumber,
-                ocr = TestOcrNumber
+                ocr = ocrNumber.Value
             });
         }
 
         static ResendInvoiceResponseType ResendInvoice() {
+            int? ocrNumber = null;
+            ThrowIfNull(ocrNumber, "OCR number must be set!");
             return InvoiceServiceAgent.Instance().ResendInvoice(new ResendInvoiceRequestType() {
                 key = AuthToken,
                 customerno = CustomerNumber,
-                ocr = TestOcrNumber,
+                ocr = ocrNumber.Value,
                 co_address1 = "This",
                 co_address2 = "is",
                 co_address3 = "only",
@@ -141,10 +138,12 @@ namespace Berazy.Examples {
         }
 
         static PauseInvoiceResponseType PauseInvoice() {
+            int? ocrNumber = null;
+            ThrowIfNull(ocrNumber, "OCR number must be set!");
             return InvoiceServiceAgent.Instance().PauseInvoice(new PauseInvoiceRequestType() {
                 key = AuthToken,
                 customerno = CustomerNumber,
-                ocr = TestOcrNumber
+                ocr = ocrNumber.Value
             });
         }
 
@@ -152,10 +151,38 @@ namespace Berazy.Examples {
             return InvoiceServiceAgent.Instance().SearchCompany(new SearchCompanyRequestType() {
                 key = AuthToken,
                 customerno = CustomerNumber,
-                company_name = TestCompanyName,
+                company_name = "Berazy",
                 phonetic_search = true,
                 number_hits = 10
             });
+        }
+
+        /// <summary>
+        /// Example null checker.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="message"></param>
+        static void ThrowIfNull(object obj, string message) {
+            if (obj == null) {
+                throw new ArgumentException(message);
+            }
+        }
+
+        /// <summary>
+        /// Verifies setup.
+        /// </summary>
+        static void VerifySetup() {
+            var customerNumber = ConfigurationManager.AppSettings.Get("customerNo");
+            var authToken = ConfigurationManager.AppSettings.Get("authToken");
+            if (string.IsNullOrWhiteSpace(authToken) || string.IsNullOrWhiteSpace(customerNumber)) {
+                throw new ArgumentException("All examples requires customerNo and authToken to be set in App.config.");
+            }
+            int customerNo = -1;
+            if (!int.TryParse(customerNumber, out customerNo)) {
+                throw new ArgumentException("customerNo must be an int.");
+            }
+            CustomerNumber = customerNo;
+            AuthToken = authToken;
         }
 
         /// <summary>
@@ -173,27 +200,6 @@ namespace Berazy.Examples {
                 }
             }
             Console.WriteLine(retval);
-        }
-
-        /// <summary>
-        /// Verifies setup.
-        /// </summary>
-        static void VerifySetup() {
-            var customerNumber = ConfigurationManager.AppSettings.Get("customerNo");
-            var authToken = ConfigurationManager.AppSettings.Get("authToken");
-            if (string.IsNullOrWhiteSpace(authToken) ||
-                string.IsNullOrWhiteSpace(customerNumber) ||
-                string.IsNullOrWhiteSpace(TestOrganizationNumber) ||
-                TestOcrNumber < 0 ||
-                string.IsNullOrWhiteSpace(TestCompanyName)) {
-                    throw new ArgumentException("All examples requires customerNo, authToken to be set in App.config and all constants to be set in Program.cs.");
-            }
-            int customerNo = -1;
-            if (!int.TryParse(customerNumber, out customerNo)) {
-                throw new ArgumentException("CustomerNumber must be an int.");
-            }
-            CustomerNumber = customerNo;
-            AuthToken = authToken;
         }
 
     }
