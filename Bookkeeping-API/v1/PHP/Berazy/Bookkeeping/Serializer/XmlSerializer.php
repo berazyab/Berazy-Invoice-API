@@ -108,7 +108,7 @@ class XmlSerializer
                 }
             } else if (strncmp($item, 'set', 3)) {
                 $value = $objOrArr->$item();
-                if ($value != NULL) {
+                if ($value != null) {
                     $attr = $this->getXmlAttributes($reflector->getMethod($item)->getDocComment());
                     if (isset($attr['@XmlElement'])) {
                         $key = trim($attr['@XmlElement']);

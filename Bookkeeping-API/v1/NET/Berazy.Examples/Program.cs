@@ -12,21 +12,6 @@ namespace Berazy.Examples {
     internal class Program {
 
         /// <summary>
-        /// A test organizational number or unique identifier number for an individual. 
-        /// </summary>
-        const string TestOrganizationalNumber = "";
-
-        // <summary>
-        /// A test E-mail address. 
-        /// </summary>
-        const string TestEmailAddress = "";
-
-        // <summary>
-        /// A test OCR number for credit. 
-        /// </summary>
-        const int TestOcrNumberToCredit = -1;
-
-        /// <summary>
         /// Main method.
         /// </summary>
         /// <param name="args"></param>
@@ -68,9 +53,10 @@ namespace Berazy.Examples {
         /// Create an invoice example.
         /// </summary>
         static CreateInvoiceResponseType CreateInvoice() {
-            if (string.IsNullOrWhiteSpace(TestOrganizationalNumber) || string.IsNullOrWhiteSpace(TestEmailAddress)) {
-                throw new ArgumentException("Constants TestOrgnizationalNumber and TestEmailAddress needs to be set!");
-            }
+            string orgOrSsn = null;
+            string emailAddress = null;
+            ThrowIfNull(orgOrSsn, "Organizational number or social security number must be set!");
+            ThrowIfNull(emailAddress, "E-mail address must be set!");
             var client = new BookkeepingClient();
             var request = new CreateInvoiceRequest() {
                 Request = new CreateInvoiceRequestType() {
@@ -79,8 +65,8 @@ namespace Berazy.Examples {
                     ForceToSend = 0,
                     Service = ServiceType.InvoiceService,
                     PrintSetup = PrintSetupType.EPdfPrint,
-                    SSN = TestOrganizationalNumber,
-                    EmailAddress = TestEmailAddress,
+                    SSN = orgOrSsn,
+                    EmailAddress = emailAddress,
                     OrderNo = Guid.NewGuid().ToString(),
                     InvoiceDate = DateTimeUtils.UnixTime(DateTime.UtcNow),
                     InvoiceDueDate = DateTimeUtils.UnixTime(DateTime.UtcNow.AddDays(30)),
@@ -108,16 +94,15 @@ namespace Berazy.Examples {
         /// </summary>
         /// <returns></returns>
         static CreditInvoiceResponseType CreditInvoice() {
-            if (TestOcrNumberToCredit == -1) {
-                throw new ArgumentException("Constant TestOcrNumberToCredit needs to be set with a valid OCR for this example!");
-            }
+            int? ocrNumber = null;
+            ThrowIfNull(ocrNumber, "OCR number must be set!");
             var client = new BookkeepingClient();
             var request = new CreditInvoiceRequest() {
                 Request = new CreditInvoiceRequestType() {
                     IsInTestMode = true,
                     PrintSetup = PrintSetupType.EPdfPrint,
                     IsVatIncluded = 1,
-                    Ocr = TestOcrNumberToCredit,
+                    Ocr = ocrNumber.Value,
                     CreditRows = new CreditRowsType() { 
                         new CreditRowType() {
                             ArticleNumber = "666",
@@ -131,6 +116,33 @@ namespace Berazy.Examples {
             Console.WriteLine("XML request: ");
             Console.WriteLine(XmlUtils.Serialize<CreditInvoiceRequest>(request));
             return client.CreditInvoice(request).Response;
+        }
+
+        /// <summary>
+        /// Example null checker.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="message"></param>
+        static void ThrowIfNull(object obj, string message) {
+            if (obj == null) {
+                throw new ArgumentException(message);
+            }
+        }
+
+        /// <summary>
+        /// Verifies setup.
+        /// </summary>
+        static void VerifySetup() {
+            var customerNo = ConfigurationManager.AppSettings.Get("customerNo");
+            var authToken = ConfigurationManager.AppSettings.Get("authToken");
+            var ipAddress = ConfigurationManager.AppSettings.Get("ipAddress");
+            if (
+                string.IsNullOrWhiteSpace(customerNo) ||
+                string.IsNullOrWhiteSpace(authToken) ||
+                string.IsNullOrWhiteSpace(ipAddress)
+            ) {
+                throw new ArgumentException("All examples requires customerNo, authToken and ipAddress to be set in App.config.");
+            }
         }
 
         /// <summary>
@@ -148,23 +160,6 @@ namespace Berazy.Examples {
                 }
             }
             Console.WriteLine(retval);
-        }
-
-        /// <summary>
-        /// Verifies setup.
-        /// </summary>
-        static void VerifySetup() {
-            var customerNo = ConfigurationManager.AppSettings.Get("customerNo");
-            var authToken = ConfigurationManager.AppSettings.Get("authToken");
-            var ipAddress = ConfigurationManager.AppSettings.Get("ipAddress");
-            if (
-                string.IsNullOrWhiteSpace(customerNo) ||
-                string.IsNullOrWhiteSpace(authToken) ||
-                string.IsNullOrWhiteSpace(ipAddress)
-            ) {
-                throw new ArgumentException("All examples requires customerNo, authToken and ipAddress to be set in App.config.");
-            }
-
         }
 
     }
