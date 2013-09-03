@@ -25,6 +25,25 @@ namespace Berazy.Examples {
 
         #endregion
 
+        #region Public Fields.
+
+        /// <summary>
+        /// The customer number.
+        /// </summary>
+        public int CustomerNumber { get; set; }
+
+        /// <summary>
+        /// The authentication token/key.
+        /// </summary>
+        public string AuthToken { get; set; }
+
+        /// <summary>
+        /// The IP address.
+        /// </summary>
+        public string IpAddress { get; set; }
+
+        #endregion
+
         #region Public Functions.
 
         /// <summary>
@@ -54,18 +73,15 @@ namespace Berazy.Examples {
         /// <param name="serviceUrl"></param>
         /// <param name="obj"></param>
         TResponse SendRequest<TRequest, TResponse>(string serviceUrl, TRequest obj) {
-            var customerNo = ConfigurationManager.AppSettings.Get("customerNo");
-            var authToken = ConfigurationManager.AppSettings.Get("authToken");
-            var ipAddress = ConfigurationManager.AppSettings.Get("ipAddress");
             var data = XmlUtils.Serialize<TRequest>(obj);
             var address = new Uri(serviceUrl);
             var byteData = UTF8Encoding.UTF8.GetBytes(data);
-            var key = Hash(string.Format("{0}{1:yyyyMMdd}{2}", ipAddress, DateTime.Now, authToken));
+            var key = Hash(string.Format("{0}{1:yyyyMMdd}{2}", IpAddress, DateTime.Now, AuthToken));
             var request = WebRequest.Create(address) as HttpWebRequest;
             request.Method = "POST";
             request.ContentType = "application/xml";
             request.ContentLength = byteData.Length;
-            request.Headers.Add("customerNo", customerNo);
+            request.Headers.Add("customerNo", CustomerNumber.ToString());
             request.Headers.Add("key", key);
             using (Stream postStream = request.GetRequestStream()) {
                 postStream.Write(byteData, 0, byteData.Length);

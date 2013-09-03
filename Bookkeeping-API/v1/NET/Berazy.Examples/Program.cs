@@ -12,17 +12,22 @@ namespace Berazy.Examples {
     internal class Program {
 
         /// <summary>
+        /// The Bookkeeping API client.
+        /// </summary>
+        static BookkeepingClient Client { get; set; }
+
+        /// <summary>
         /// Main method.
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args) {
 
             try {
-                VerifySetup();
+                Initialize();
                 string line;
                 Console.WriteLine("Choose operation to invoke:\n");
-                Console.WriteLine("1. CreateInvoice\n");
-                Console.WriteLine("2. CreditInvoice\n");
+                Console.WriteLine("1. Create invoice\n");
+                Console.WriteLine("2. Credit invoice\n");
                 do {
                     line = Console.ReadLine();
                     if (line.IsNotNull()) {
@@ -55,9 +60,8 @@ namespace Berazy.Examples {
         static CreateInvoiceResponseType CreateInvoice() {
             string orgOrSsn = null;
             string emailAddress = null;
-            ThrowIfNull(orgOrSsn, "Organizational number or social security number must be set!");
-            ThrowIfNull(emailAddress, "E-mail address must be set!");
-            var client = new BookkeepingClient();
+            orgOrSsn.ThrowIfNull("Organizational number or social security number must be set!");
+            emailAddress.ThrowIfNull("E-mail address must be set!");
             var request = new CreateInvoiceRequest() {
                 Request = new CreateInvoiceRequestType() {
                     IsInTestMode = true,
@@ -86,7 +90,7 @@ namespace Berazy.Examples {
             };
             Console.WriteLine("XML request: ");
             Console.WriteLine(XmlUtils.Serialize<CreateInvoiceRequest>(request));
-            return client.CreateInvoice(request).Response;
+            return Client.CreateInvoice(request).Response;
         }
 
         /// <summary>
@@ -95,8 +99,7 @@ namespace Berazy.Examples {
         /// <returns></returns>
         static CreditInvoiceResponseType CreditInvoice() {
             int? ocrNumber = null;
-            ThrowIfNull(ocrNumber, "OCR number must be set!");
-            var client = new BookkeepingClient();
+            ocrNumber.ThrowIfNull("OCR number must be set!");
             var request = new CreditInvoiceRequest() {
                 Request = new CreditInvoiceRequestType() {
                     IsInTestMode = true,
@@ -115,34 +118,28 @@ namespace Berazy.Examples {
             };
             Console.WriteLine("XML request: ");
             Console.WriteLine(XmlUtils.Serialize<CreditInvoiceRequest>(request));
-            return client.CreditInvoice(request).Response;
+            return Client.CreditInvoice(request).Response;
         }
 
         /// <summary>
-        /// Example null checker.
+        /// Initialization.
         /// </summary>
-        /// <param name="obj"></param>
-        /// <param name="message"></param>
-        static void ThrowIfNull(object obj, string message) {
-            if (obj == null) {
-                throw new ArgumentException(message);
-            }
-        }
-
-        /// <summary>
-        /// Verifies setup.
-        /// </summary>
-        static void VerifySetup() {
+        static void Initialize() {
             var customerNo = ConfigurationManager.AppSettings.Get("customerNo");
             var authToken = ConfigurationManager.AppSettings.Get("authToken");
             var ipAddress = ConfigurationManager.AppSettings.Get("ipAddress");
-            if (
-                string.IsNullOrWhiteSpace(customerNo) ||
-                string.IsNullOrWhiteSpace(authToken) ||
-                string.IsNullOrWhiteSpace(ipAddress)
-            ) {
-                throw new ArgumentException("All examples requires customerNo, authToken and ipAddress to be set in App.config.");
+            if (customerNo.IsEmpty() || authToken.IsEmpty() || ipAddress.IsEmpty()) {
+                throw new ArgumentException("All examples requires customerNo, authToken and ipAddress to be set in App.config!");
             }
+            int customerNumber = 0;
+            if (int.TryParse(customerNo, out customerNumber)) {
+                throw new ArgumentException("CustomerNo must be an int!");
+            }
+            Client = new BookkeepingClient() {
+                CustomerNumber = customerNumber,
+                AuthToken = authToken,
+                IpAddress = ipAddress
+            };
         }
 
         /// <summary>
