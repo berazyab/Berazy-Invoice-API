@@ -78,7 +78,7 @@
     $invoiceDetailsRequestType = new \Berazy\Invoice\Contract\InvoiceDetailsRequestType();
     $invoiceDetailsRequestType->setOcr('OCR_NUMBER_AS_INT');
     $invoiceDetailsRequest->setRequest($invoiceDetailsRequestType);
-    //clientCall('InvoiceStatus', $invoiceStatusRequest);
+    //clientCall('InvoiceDetails', $invoiceDetailsRequest);
     
 /********************************************************************************
  * ActivateInvoice request

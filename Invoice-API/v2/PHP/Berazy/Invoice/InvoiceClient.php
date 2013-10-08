@@ -85,7 +85,7 @@ class InvoiceClient extends \SoapClient
     { 
         $default = array_merge(
             array( 
-                'trace' => TRUE, 
+                'trace' => true, 
                 'encoding' => 'utf-8', 
                 'connection_timeout' => 0, 
                 'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
