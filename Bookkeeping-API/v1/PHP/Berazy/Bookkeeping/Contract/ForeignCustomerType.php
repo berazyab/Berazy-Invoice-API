@@ -71,6 +71,7 @@ class ForeignCustomerType
     public function setCountry($country)
     {
         $this->country = $country;
+        return $this;
     }
     
     /**
@@ -84,6 +85,7 @@ class ForeignCustomerType
     public function setCountryWithoutSsnCheck(CountryWithoutSsnCheckType $countryWithoutSsnCheck)
     {
         $this->countryWithoutSsnCheck = $countryWithoutSsnCheck;
+        return $this;
     }
     
 }

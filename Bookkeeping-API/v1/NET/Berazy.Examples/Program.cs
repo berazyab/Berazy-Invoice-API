@@ -132,7 +132,7 @@ namespace Berazy.Examples {
                 throw new ArgumentException("All examples requires customerNo, authToken and ipAddress to be set in App.config!");
             }
             int customerNumber = 0;
-            if (int.TryParse(customerNo, out customerNumber)) {
+            if (! int.TryParse(customerNo, out customerNumber)) {
                 throw new ArgumentException("CustomerNo must be an int!");
             }
             Client = new BookkeepingClient() {

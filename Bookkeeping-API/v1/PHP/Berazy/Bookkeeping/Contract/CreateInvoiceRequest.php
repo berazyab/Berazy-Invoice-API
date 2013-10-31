@@ -83,6 +83,7 @@ class CreateInvoiceRequest
     public function setRequest(CreateInvoiceRequestType $request)
     {
         $this->request = $request;
+        return $this;
     }
     
 }

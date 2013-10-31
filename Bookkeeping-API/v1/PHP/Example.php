@@ -47,7 +47,7 @@
     $client ->setCustomerNumber('CUSTOMER_NUMBER_AS_INT')
             ->setAuthToken('AUTH_TOKEN')
             ->setIpAddress('IP_ADDRESS')
-            ->setValidateXsdBeforeRequest(FALSE);
+            ->setValidateXsdBeforeRequest(false);
 
 /********************************************************************************
  * Create invoice request
@@ -150,7 +150,7 @@
      */
     function customAutoLoader($class)
     {
-        $file = rtrim(dirname(__FILE__), '/') . '/' . $class . '.php';
+        $file = str_replace('\\', '/', rtrim(dirname(__FILE__), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR  . $class . '.php');
         if (file_exists($file)) {
             require $file;
         } else {

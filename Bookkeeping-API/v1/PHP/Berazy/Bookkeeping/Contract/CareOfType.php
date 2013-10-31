@@ -89,6 +89,7 @@ class CareOfType
     public function setName($name)
     {
         $this->name = $name;
+        return $this;
     }
     
     /**
@@ -102,6 +103,7 @@ class CareOfType
     public function setAddressLine1($addressLine1)
     {
         $this->addressLine1 = $addressLine1;
+        return $this;
     }
     
     /**
@@ -115,6 +117,7 @@ class CareOfType
     public function setAddressLine2($addressLine2)
     {
         $this->addressLine2 = $addressLine2;
+        return $this;
     }
     
     /**
@@ -128,6 +131,7 @@ class CareOfType
     public function setPostalCode($postalCode)
     {
         $this->postalCode = $postalCode;
+        return $this;
     }
     
     /**
@@ -141,6 +145,7 @@ class CareOfType
     public function setCity($city)
     {
         $this->city = $city;
+        return $this;
     }
     
 }

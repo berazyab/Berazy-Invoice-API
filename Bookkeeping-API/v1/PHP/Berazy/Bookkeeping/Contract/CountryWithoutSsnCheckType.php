@@ -91,6 +91,7 @@ class CountryWithoutSsnCheckType
     public function setCountryCode($countryCode)
     {
         $this->countryCode = $countryCode;
+        return $this;
     }
     
     /**
@@ -104,6 +105,7 @@ class CountryWithoutSsnCheckType
     public function setAddressLine1($addressLine1)
     {
         $this->addressLine1 = $addressLine1;
+        return $this;
     }
     
     /**
@@ -117,6 +119,7 @@ class CountryWithoutSsnCheckType
     public function setAddressLine2($addressLine2)
     {
         $this->addressLine2 = $addressLine2;
+        return $this;
     }
     
     /**
@@ -130,10 +133,11 @@ class CountryWithoutSsnCheckType
     public function setAddressLine3($addressLine3)
     {
         $this->addressLine3 = $addressLine3;
+        return $this;
     }
     
     /**
-     * @XmlElement addressLine1
+     * @XmlElement addressLine4
      */
     public function getAddressLine4()
     {
@@ -143,6 +147,7 @@ class CountryWithoutSsnCheckType
     public function setAddressLine4($addressLine4)
     {
         $this->addressLine4 = $addressLine4;
+        return $this;
     }
     
 }

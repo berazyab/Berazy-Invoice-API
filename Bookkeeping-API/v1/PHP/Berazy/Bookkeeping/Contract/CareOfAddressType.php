@@ -65,6 +65,7 @@ class CareOfAddressType
     public function setCareOf(CareOfType $careOf)
     {
         $this->careOf = $careOf;
+        return $this;
     }
     
 }

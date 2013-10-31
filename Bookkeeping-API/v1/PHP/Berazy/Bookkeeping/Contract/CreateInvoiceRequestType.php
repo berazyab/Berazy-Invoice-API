@@ -224,6 +224,7 @@ class CreateInvoiceRequestType
     public function setIsTestModeEnabled($isTestModeEnabled)
     {
         $this->isTestModeEnabled = $isTestModeEnabled;
+        return $this;
     }
     
     /**
@@ -237,6 +238,7 @@ class CreateInvoiceRequestType
     public function setMakeInvoiceReservation($makeInvoiceReservation)
     {
         $this->makeInvoiceReservation = $makeInvoiceReservation;
+        return $this;
     }
         
     /**
@@ -250,6 +252,7 @@ class CreateInvoiceRequestType
     public function setForceToSend($forceToSend)
     {
         $this->forceToSend = $forceToSend;
+        return $this;
     }
     
     /**
@@ -263,6 +266,7 @@ class CreateInvoiceRequestType
     public function setService($service)
     {
         $this->service = $service;
+        return $this;
     }
     
     /**
@@ -276,6 +280,7 @@ class CreateInvoiceRequestType
     public function setPrintSetup($printSetup)
     {
         $this->printSetup = $printSetup;
+        return $this;
     }
     
     /**
@@ -289,6 +294,7 @@ class CreateInvoiceRequestType
     public function setSsn($ssn)
     {
         $this->ssn = $ssn;
+        return $this;
     }
     
     /**
@@ -302,6 +308,7 @@ class CreateInvoiceRequestType
     public function setSendToOrganization($sendToOrganization)
     {
         $this->sendToOrganization = $sendToOrganization;
+        return $this;
     }
     
     /**
@@ -315,6 +322,7 @@ class CreateInvoiceRequestType
     public function setForeignCustomer(ForeignCustomerType $foreignCustomer)
     {
         $this->foreignCustomer = $foreignCustomer;
+        return $this;
     }
     
     /**
@@ -328,6 +336,7 @@ class CreateInvoiceRequestType
     public function setCareOfAddress(CareOfAddressType $careOfAddress)
     {
         $this->careOfAddress = $careOfAddress;
+        return $this;
     }
     
     /**
@@ -341,6 +350,7 @@ class CreateInvoiceRequestType
     public function setInvoiceReference($invoiceReference)
     {
         $this->invoiceReference = $invoiceReference;
+        return $this;
     }
     
     /**
@@ -352,6 +362,7 @@ class CreateInvoiceRequestType
     
     public function setInvoiceOrderNo($invoiceOrderNo) {
         $this->invoiceOrderNo = $invoiceOrderNo;
+        return $this;
     }
 
     /**
@@ -365,6 +376,7 @@ class CreateInvoiceRequestType
     public function setShippingFee($shippingFee)
     {
         $this->shippingFee = $shippingFee;
+        return $this;
     }
     
     /**
@@ -378,6 +390,7 @@ class CreateInvoiceRequestType
     public function setExpeditionFee($expeditionFee)
     {
         $this->expeditionFee = $expeditionFee;
+        return $this;
     }
     
     /**
@@ -391,6 +404,7 @@ class CreateInvoiceRequestType
     public function setInvoiceDate($invoiceDate)
     {
         $this->invoiceDate = $invoiceDate;
+        return $this;
     }
 
     /**
@@ -404,6 +418,7 @@ class CreateInvoiceRequestType
     public function setInvoiceDueDate($invoiceDueDate)
     {
         $this->invoiceDueDate = $invoiceDueDate;
+        return $this;
     }
 
     /**
@@ -417,6 +432,7 @@ class CreateInvoiceRequestType
     public function setClientIpAddress($clientIpAddress)
     {
         $this->clientIpAddress = $clientIpAddress;
+        return $this;
     }
     
     /**
@@ -430,6 +446,7 @@ class CreateInvoiceRequestType
     public function setCallbackUrl($callbackUrl)
     {
         $this->callbackUrl = $callbackUrl;
+        return $this;
     }
     
     /**
@@ -443,6 +460,7 @@ class CreateInvoiceRequestType
     public function setMobile($mobile)
     {
         $this->mobile = $mobile;
+        return $this;
     }
     
     /**
@@ -456,6 +474,7 @@ class CreateInvoiceRequestType
     public function setEmailAddress($emailAddress)
     {
         $this->emailAddress = $emailAddress;
+        return $this;
     }
     
     /**
@@ -469,6 +488,7 @@ class CreateInvoiceRequestType
     public function setOrderNumber($orderNumber)
     {
         $this->orderNumber = $orderNumber;
+        return $this;
     }
     
     /**
@@ -482,6 +502,7 @@ class CreateInvoiceRequestType
     public function setOurReference($ourReference)
     {
         $this->ourReference = $ourReference;
+        return $this;
     }
     
     /**
@@ -495,6 +516,7 @@ class CreateInvoiceRequestType
     public function setYourReference($yourReference)
     {
         $this->yourReference = $yourReference;
+        return $this;
     }
     
     /**
@@ -508,6 +530,7 @@ class CreateInvoiceRequestType
     public function setInvoiceRows(array $invoiceRows)
     {
         $this->invoiceRows = $invoiceRows;
+        return $this;
     }
     
     /**
@@ -521,6 +544,7 @@ class CreateInvoiceRequestType
     public function setComment($comment)
     {
         $this->comment = $comment;
+        return $this;
     }
     
     /**
@@ -534,6 +558,7 @@ class CreateInvoiceRequestType
     public function setDiscount($discount)
     {
         $this->discount = $discount;
+        return $this;
     }
     
     /**
@@ -547,6 +572,7 @@ class CreateInvoiceRequestType
     public function setBillingVar($billingVar)
     {
         $this->billingVar = $billingVar;
+        return $this;
     }
     
 }

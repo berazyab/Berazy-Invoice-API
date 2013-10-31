@@ -83,6 +83,7 @@ class CreditInvoiceRequest
     public function setRequest(CreditInvoiceRequestType $request)
     {
         $this->request = $request;
+        return $this;
     }
     
 }

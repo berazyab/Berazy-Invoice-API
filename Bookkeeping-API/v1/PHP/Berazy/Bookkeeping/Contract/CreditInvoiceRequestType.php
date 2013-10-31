@@ -143,6 +143,7 @@ class CreditInvoiceRequestType
     public function setPrintSetup($printSetup)
     {
         $this->printSetup = $printSetup;
+        return $this;
     }
     
     /**
@@ -156,6 +157,7 @@ class CreditInvoiceRequestType
     public function setIsVatIncluded($isVatIncluded)
     {
         $this->isVatIncluded = $isVatIncluded;
+        return $this;
     }
     
     /**
@@ -169,6 +171,7 @@ class CreditInvoiceRequestType
     public function setOcr($ocr)
     {
         $this->ocr = $ocr;
+        return $this;
     }
     
     /**
@@ -182,6 +185,7 @@ class CreditInvoiceRequestType
     public function setOrderNumber($orderNumber)
     {
         $this->orderNumber = $orderNumber;
+        return $this;
     }
     
     /**
@@ -195,6 +199,7 @@ class CreditInvoiceRequestType
     public function setShowInvoiceFooterTextInResponse($showInvoiceFooterTextInResponse)
     {
         $this->showInvoiceFooterTextInResponse = $showInvoiceFooterTextInResponse;
+        return $this;
     }
     
     /**
@@ -208,6 +213,7 @@ class CreditInvoiceRequestType
     public function setComment($comment)
     {
         $this->comment = $comment;
+        return $this;
     }
     
     /**
@@ -221,6 +227,7 @@ class CreditInvoiceRequestType
     public function setEmailAddress($emailAddress)
     {
         $this->emailAddress = $emailAddress;
+        return $this;
     }
     
     /**
@@ -234,6 +241,7 @@ class CreditInvoiceRequestType
     public function setMobilePhoneNumber($mobilePhoneNumber)
     {
         $this->mobilePhoneNumber = $mobilePhoneNumber;
+        return $this;
     }
     
     /**
@@ -247,6 +255,7 @@ class CreditInvoiceRequestType
     public function setCreditAllInvoiceRows($creditAllInvoiceRows)
     {
         $this->creditAllInvoiceRows = $creditAllInvoiceRows;
+        return $this;
     }
     
     /**
@@ -260,6 +269,7 @@ class CreditInvoiceRequestType
     public function setCreditRows(array $creditRows)
     {
         $this->creditRows = $creditRows;
+        return $this;
     }
     
 }
