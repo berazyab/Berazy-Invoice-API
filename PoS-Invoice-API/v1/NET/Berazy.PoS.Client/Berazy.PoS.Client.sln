@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berazy.PoS.Client", "Berazy.PoS.Client\Berazy.PoS.Client.csproj", "{45E4CF92-2A51-4238-A50A-992E229E0AFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Berazy.PoS.Example", "Berazy.PoS.Example\Berazy.PoS.Example.csproj", "{419CAB38-1767-4EB3-8DEC-65CFF60CE427}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45E4CF92-2A51-4238-A50A-992E229E0AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45E4CF92-2A51-4238-A50A-992E229E0AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45E4CF92-2A51-4238-A50A-992E229E0AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45E4CF92-2A51-4238-A50A-992E229E0AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{419CAB38-1767-4EB3-8DEC-65CFF60CE427}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{419CAB38-1767-4EB3-8DEC-65CFF60CE427}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{419CAB38-1767-4EB3-8DEC-65CFF60CE427}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{419CAB38-1767-4EB3-8DEC-65CFF60CE427}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
